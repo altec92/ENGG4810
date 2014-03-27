@@ -19,25 +19,31 @@ namespace ENG4810_Software
         {
             //Everything that needs to happen at startup. 
             InitializeComponent();
-            //track bar ranges;
-            trackBar_Temp.Minimum = -40;
-            trackBar_Temp.Maximum = 85;
-            trackBar_G.Minimum = -10;
-            trackBar_G.Maximum = +10;
-
-            // Initialise labels and textboxes.
-            tempBar_text.Text = trackBar_Temp.Value.ToString();
-            tempBar_Max.Text = trackBar_Temp.Maximum.ToString()+"C";
-            tempBar_Min.Text = trackBar_Temp.Minimum.ToString()+"C";
-            gBar_text.Text = trackBar_G.Value.ToString();
-            gBar_Max.Text = trackBar_G.Maximum.ToString()+"g";
-            gBar_Min.Text = trackBar_G.Minimum.ToString() + "g";
-
+    
+            
             //init Map 
-            gmap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Position = new GMap.NET.PointLatLng(-25.971684, 32.589759);
-            //gmap.SetCurrentPositionByKeywords("Brisbane,Autralia");
+
+            zoomMin_B.Text = "\u002d";
+            //humidity bar limits
+            humRange.TotalMaximum = 100;
+            humRange.TotalMinimum = 0;
+            //Temperature Bar limits
+            tempRange.TotalMaximum = 85;
+            tempRange.TotalMinimum = -40;
+            // G force limits
+            gForceRange.TotalMaximum = 10;
+            gForceRange.TotalMinimum = -10; 
+            
+            //pressure range limits
+            presRange.TotalMaximum = 110;
+            presRange.TotalMinimum = 3;
+            // 
+            magRange.TotalMaximum = 1000;
+            magRange.TotalMinimum = -1000;
+            
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -47,12 +53,12 @@ namespace ENG4810_Software
 
         private void trackBar_Temp_ValueChanged(object sender, EventArgs e)
         {
-            tempBar_text.Text = trackBar_Temp.Value.ToString();
+            
         }
 
         private void trackBar_G_ValueChanged(object sender, EventArgs e)
         {
-            gBar_text.Text = trackBar_G.Value.ToString();
+            
             
         }
 
@@ -74,6 +80,22 @@ namespace ENG4810_Software
                 // insert file handing stuff here 
              }
  
+        }
+
+        private void zoomPlu_B_Click(object sender, EventArgs e)
+        {
+            if (gmap.Zoom < 18)
+            {
+                gmap.Zoom += 0.5;
+            }
+        }
+
+        private void zoomMin_B_Click(object sender, EventArgs e)
+        {
+            if (gmap.Zoom > 1)
+            {
+                gmap.Zoom -= 0.5;
+            }
         }
     }
 }
