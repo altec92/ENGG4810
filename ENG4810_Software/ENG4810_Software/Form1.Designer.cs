@@ -29,8 +29,32 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dbRange = new Zzzz.ZzzzRangeBar();
+            this.lumR_Max = new System.Windows.Forms.TextBox();
+            this.lumR_Min = new System.Windows.Forms.TextBox();
+            this.dbaR_Max = new System.Windows.Forms.TextBox();
+            this.dbaR_Min = new System.Windows.Forms.TextBox();
+            this.magR_Max = new System.Windows.Forms.TextBox();
+            this.gRang_Max = new System.Windows.Forms.TextBox();
+            this.magR_Min = new System.Windows.Forms.TextBox();
+            this.uvR_Max = new System.Windows.Forms.TextBox();
+            this.uvR_Min = new System.Windows.Forms.TextBox();
+            this.presR_Max = new System.Windows.Forms.TextBox();
+            this.presR_Min = new System.Windows.Forms.TextBox();
+            this.humR_Max = new System.Windows.Forms.TextBox();
+            this.humR_Min = new System.Windows.Forms.TextBox();
+            this.gRang_Min = new System.Windows.Forms.TextBox();
+            this.tempR_Max = new System.Windows.Forms.TextBox();
+            this.tempR_Min = new System.Windows.Forms.TextBox();
             this.lumRange = new Zzzz.ZzzzRangeBar();
+            this.dbRang_Max = new System.Windows.Forms.Label();
+            this.lumRang_Max = new System.Windows.Forms.Label();
+            this.magRang_Max = new System.Windows.Forms.Label();
+            this.UV = new System.Windows.Forms.Label();
+            this.Pressure = new System.Windows.Forms.Label();
+            this.humidity = new System.Windows.Forms.Label();
+            this.gForce = new System.Windows.Forms.Label();
+            this.tempR = new System.Windows.Forms.Label();
+            this.dbRange = new Zzzz.ZzzzRangeBar();
             this.magRange = new Zzzz.ZzzzRangeBar();
             this.uvRange = new Zzzz.ZzzzRangeBar();
             this.presRange = new Zzzz.ZzzzRangeBar();
@@ -40,19 +64,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,22 +78,6 @@
             this.zoomPlu_B = new System.Windows.Forms.Button();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tempR_Max = new System.Windows.Forms.Label();
-            this.tempR_Min = new System.Windows.Forms.Label();
-            this.gRang_Max = new System.Windows.Forms.Label();
-            this.gRang_Min = new System.Windows.Forms.Label();
-            this.humRang_Max = new System.Windows.Forms.Label();
-            this.humRang_Min = new System.Windows.Forms.Label();
-            this.PresRange_Max = new System.Windows.Forms.Label();
-            this.PresRange_Min = new System.Windows.Forms.Label();
-            this.uvRange_Max = new System.Windows.Forms.Label();
-            this.uvRange_Min = new System.Windows.Forms.Label();
-            this.magRang_Max = new System.Windows.Forms.Label();
-            this.magRang_Min = new System.Windows.Forms.Label();
-            this.lumRang_Max = new System.Windows.Forms.Label();
-            this.lumRang_Min = new System.Windows.Forms.Label();
-            this.dbRang_Max = new System.Windows.Forms.Label();
-            this.dbRange_Max = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -98,24 +94,32 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dbRange_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.dbRang_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.lumRang_Min);
-            this.splitContainer1.Panel1.Controls.Add(this.lumRang_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.magRang_Min);
-            this.splitContainer1.Panel1.Controls.Add(this.magRang_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.uvRange_Min);
-            this.splitContainer1.Panel1.Controls.Add(this.uvRange_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.PresRange_Min);
-            this.splitContainer1.Panel1.Controls.Add(this.PresRange_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.humRang_Min);
-            this.splitContainer1.Panel1.Controls.Add(this.humRang_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.gRang_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.lumR_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.lumR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.dbaR_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.dbaR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.magR_Max);
             this.splitContainer1.Panel1.Controls.Add(this.gRang_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.tempR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.magR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.uvR_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.uvR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.presR_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.presR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.humR_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.humR_Min);
+            this.splitContainer1.Panel1.Controls.Add(this.gRang_Min);
             this.splitContainer1.Panel1.Controls.Add(this.tempR_Max);
-            this.splitContainer1.Panel1.Controls.Add(this.dbRange);
+            this.splitContainer1.Panel1.Controls.Add(this.tempR_Min);
             this.splitContainer1.Panel1.Controls.Add(this.lumRange);
+            this.splitContainer1.Panel1.Controls.Add(this.dbRang_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.lumRang_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.magRang_Max);
+            this.splitContainer1.Panel1.Controls.Add(this.UV);
+            this.splitContainer1.Panel1.Controls.Add(this.Pressure);
+            this.splitContainer1.Panel1.Controls.Add(this.humidity);
+            this.splitContainer1.Panel1.Controls.Add(this.gForce);
+            this.splitContainer1.Panel1.Controls.Add(this.tempR);
+            this.splitContainer1.Panel1.Controls.Add(this.dbRange);
             this.splitContainer1.Panel1.Controls.Add(this.magRange);
             this.splitContainer1.Panel1.Controls.Add(this.uvRange);
             this.splitContainer1.Panel1.Controls.Add(this.presRange);
@@ -130,27 +134,120 @@
             this.splitContainer1.Panel2.Controls.Add(this.zoomPlu_B);
             this.splitContainer1.Panel2.Controls.Add(this.gmap);
             this.splitContainer1.Size = new System.Drawing.Size(1142, 513);
-            this.splitContainer1.SplitterDistance = 647;
+            this.splitContainer1.SplitterDistance = 640;
             this.splitContainer1.TabIndex = 0;
             // 
-            // dbRange
+            // lumR_Max
             // 
-            this.dbRange.AutoSize = true;
-            this.dbRange.DivisionNum = 10;
-            this.dbRange.HeightOfBar = 10;
-            this.dbRange.HeightOfMark = 20;
-            this.dbRange.HeightOfTick = 1;
-            this.dbRange.InnerColor = System.Drawing.Color.White;
-            this.dbRange.Location = new System.Drawing.Point(577, 31);
-            this.dbRange.Name = "dbRange";
-            this.dbRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
-            this.dbRange.RangeMaximum = 5;
-            this.dbRange.RangeMinimum = 3;
-            this.dbRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.dbRange.Size = new System.Drawing.Size(37, 431);
-            this.dbRange.TabIndex = 17;
-            this.dbRange.TotalMaximum = 10;
-            this.dbRange.TotalMinimum = 0;
+            this.lumR_Max.Location = new System.Drawing.Point(445, 480);
+            this.lumR_Max.Name = "lumR_Max";
+            this.lumR_Max.Size = new System.Drawing.Size(49, 22);
+            this.lumR_Max.TabIndex = 50;
+            // 
+            // lumR_Min
+            // 
+            this.lumR_Min.Location = new System.Drawing.Point(383, 480);
+            this.lumR_Min.Name = "lumR_Min";
+            this.lumR_Min.Size = new System.Drawing.Size(49, 22);
+            this.lumR_Min.TabIndex = 49;
+            // 
+            // dbaR_Max
+            // 
+            this.dbaR_Max.Location = new System.Drawing.Point(445, 419);
+            this.dbaR_Max.Name = "dbaR_Max";
+            this.dbaR_Max.Size = new System.Drawing.Size(49, 22);
+            this.dbaR_Max.TabIndex = 48;
+            // 
+            // dbaR_Min
+            // 
+            this.dbaR_Min.Location = new System.Drawing.Point(383, 419);
+            this.dbaR_Min.Name = "dbaR_Min";
+            this.dbaR_Min.Size = new System.Drawing.Size(49, 22);
+            this.dbaR_Min.TabIndex = 47;
+            // 
+            // magR_Max
+            // 
+            this.magR_Max.Location = new System.Drawing.Point(445, 358);
+            this.magR_Max.Name = "magR_Max";
+            this.magR_Max.Size = new System.Drawing.Size(49, 22);
+            this.magR_Max.TabIndex = 46;
+            // 
+            // gRang_Max
+            // 
+            this.gRang_Max.Location = new System.Drawing.Point(445, 114);
+            this.gRang_Max.Name = "gRang_Max";
+            this.gRang_Max.Size = new System.Drawing.Size(49, 22);
+            this.gRang_Max.TabIndex = 45;
+            // 
+            // magR_Min
+            // 
+            this.magR_Min.Location = new System.Drawing.Point(383, 358);
+            this.magR_Min.Name = "magR_Min";
+            this.magR_Min.Size = new System.Drawing.Size(49, 22);
+            this.magR_Min.TabIndex = 44;
+            // 
+            // uvR_Max
+            // 
+            this.uvR_Max.Location = new System.Drawing.Point(445, 297);
+            this.uvR_Max.Name = "uvR_Max";
+            this.uvR_Max.Size = new System.Drawing.Size(49, 22);
+            this.uvR_Max.TabIndex = 43;
+            // 
+            // uvR_Min
+            // 
+            this.uvR_Min.Location = new System.Drawing.Point(383, 297);
+            this.uvR_Min.Name = "uvR_Min";
+            this.uvR_Min.Size = new System.Drawing.Size(49, 22);
+            this.uvR_Min.TabIndex = 42;
+            // 
+            // presR_Max
+            // 
+            this.presR_Max.Location = new System.Drawing.Point(445, 236);
+            this.presR_Max.Name = "presR_Max";
+            this.presR_Max.Size = new System.Drawing.Size(49, 22);
+            this.presR_Max.TabIndex = 41;
+            // 
+            // presR_Min
+            // 
+            this.presR_Min.Location = new System.Drawing.Point(383, 236);
+            this.presR_Min.Name = "presR_Min";
+            this.presR_Min.Size = new System.Drawing.Size(49, 22);
+            this.presR_Min.TabIndex = 40;
+            // 
+            // humR_Max
+            // 
+            this.humR_Max.Location = new System.Drawing.Point(445, 175);
+            this.humR_Max.Name = "humR_Max";
+            this.humR_Max.Size = new System.Drawing.Size(49, 22);
+            this.humR_Max.TabIndex = 39;
+            // 
+            // humR_Min
+            // 
+            this.humR_Min.Location = new System.Drawing.Point(383, 175);
+            this.humR_Min.Name = "humR_Min";
+            this.humR_Min.Size = new System.Drawing.Size(49, 22);
+            this.humR_Min.TabIndex = 38;
+            // 
+            // gRang_Min
+            // 
+            this.gRang_Min.Location = new System.Drawing.Point(383, 114);
+            this.gRang_Min.Name = "gRang_Min";
+            this.gRang_Min.Size = new System.Drawing.Size(49, 22);
+            this.gRang_Min.TabIndex = 36;
+            // 
+            // tempR_Max
+            // 
+            this.tempR_Max.Location = new System.Drawing.Point(445, 53);
+            this.tempR_Max.Name = "tempR_Max";
+            this.tempR_Max.Size = new System.Drawing.Size(49, 22);
+            this.tempR_Max.TabIndex = 35;
+            // 
+            // tempR_Min
+            // 
+            this.tempR_Min.Location = new System.Drawing.Point(383, 53);
+            this.tempR_Min.Name = "tempR_Min";
+            this.tempR_Min.Size = new System.Drawing.Size(49, 22);
+            this.tempR_Min.TabIndex = 34;
             // 
             // lumRange
             // 
@@ -160,16 +257,109 @@
             this.lumRange.HeightOfMark = 20;
             this.lumRange.HeightOfTick = 1;
             this.lumRange.InnerColor = System.Drawing.Color.Yellow;
-            this.lumRange.Location = new System.Drawing.Point(495, 31);
+            this.lumRange.Location = new System.Drawing.Point(5, 460);
             this.lumRange.Name = "lumRange";
-            this.lumRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.lumRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.lumRange.RangeMaximum = 5;
             this.lumRange.RangeMinimum = 3;
             this.lumRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.lumRange.Size = new System.Drawing.Size(37, 431);
+            this.lumRange.Size = new System.Drawing.Size(365, 61);
             this.lumRange.TabIndex = 16;
             this.lumRange.TotalMaximum = 10;
             this.lumRange.TotalMinimum = 0;
+            this.lumRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.lumRange_RangeChanged);
+            // 
+            // dbRang_Max
+            // 
+            this.dbRang_Max.AutoSize = true;
+            this.dbRang_Max.Location = new System.Drawing.Point(376, 399);
+            this.dbRang_Max.Name = "dbRang_Max";
+            this.dbRang_Max.Size = new System.Drawing.Size(87, 17);
+            this.dbRang_Max.TabIndex = 33;
+            this.dbRang_Max.Text = "Sound Level";
+            // 
+            // lumRang_Max
+            // 
+            this.lumRang_Max.AutoSize = true;
+            this.lumRang_Max.Location = new System.Drawing.Point(376, 460);
+            this.lumRang_Max.Name = "lumRang_Max";
+            this.lumRang_Max.Size = new System.Drawing.Size(75, 17);
+            this.lumRang_Max.TabIndex = 31;
+            this.lumRang_Max.Text = "Luminosity";
+            // 
+            // magRang_Max
+            // 
+            this.magRang_Max.AutoSize = true;
+            this.magRang_Max.Location = new System.Drawing.Point(376, 338);
+            this.magRang_Max.Name = "magRang_Max";
+            this.magRang_Max.Size = new System.Drawing.Size(130, 17);
+            this.magRang_Max.TabIndex = 29;
+            this.magRang_Max.Text = "Magnetic Field (uT)";
+            // 
+            // UV
+            // 
+            this.UV.AutoSize = true;
+            this.UV.Location = new System.Drawing.Point(376, 277);
+            this.UV.Name = "UV";
+            this.UV.Size = new System.Drawing.Size(137, 17);
+            this.UV.TabIndex = 27;
+            this.UV.Text = "UV Light (mW/cm^2)";
+            // 
+            // Pressure
+            // 
+            this.Pressure.AutoSize = true;
+            this.Pressure.Location = new System.Drawing.Point(376, 216);
+            this.Pressure.Name = "Pressure";
+            this.Pressure.Size = new System.Drawing.Size(103, 17);
+            this.Pressure.TabIndex = 26;
+            this.Pressure.Text = "Pressure (kPa)";
+            // 
+            // humidity
+            // 
+            this.humidity.AutoSize = true;
+            this.humidity.Location = new System.Drawing.Point(376, 155);
+            this.humidity.Name = "humidity";
+            this.humidity.Size = new System.Drawing.Size(108, 17);
+            this.humidity.TabIndex = 23;
+            this.humidity.Text = "Humidity (%RH)";
+            // 
+            // gForce
+            // 
+            this.gForce.AutoSize = true;
+            this.gForce.Location = new System.Drawing.Point(376, 94);
+            this.gForce.Name = "gForce";
+            this.gForce.Size = new System.Drawing.Size(81, 17);
+            this.gForce.TabIndex = 21;
+            this.gForce.Text = "G Force (g)";
+            // 
+            // tempR
+            // 
+            this.tempR.AutoSize = true;
+            this.tempR.Location = new System.Drawing.Point(376, 33);
+            this.tempR.Name = "tempR";
+            this.tempR.Size = new System.Drawing.Size(113, 17);
+            this.tempR.TabIndex = 19;
+            this.tempR.Text = "Temperature (C)";
+            // 
+            // dbRange
+            // 
+            this.dbRange.AutoSize = true;
+            this.dbRange.DivisionNum = 10;
+            this.dbRange.HeightOfBar = 10;
+            this.dbRange.HeightOfMark = 20;
+            this.dbRange.HeightOfTick = 1;
+            this.dbRange.InnerColor = System.Drawing.Color.White;
+            this.dbRange.Location = new System.Drawing.Point(5, 399);
+            this.dbRange.Name = "dbRange";
+            this.dbRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
+            this.dbRange.RangeMaximum = 5;
+            this.dbRange.RangeMinimum = 3;
+            this.dbRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
+            this.dbRange.Size = new System.Drawing.Size(365, 61);
+            this.dbRange.TabIndex = 17;
+            this.dbRange.TotalMaximum = 10;
+            this.dbRange.TotalMinimum = 0;
+            this.dbRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.dbRange_RangeChanged);
             // 
             // magRange
             // 
@@ -179,16 +369,17 @@
             this.magRange.HeightOfMark = 20;
             this.magRange.HeightOfTick = 1;
             this.magRange.InnerColor = System.Drawing.Color.DeepPink;
-            this.magRange.Location = new System.Drawing.Point(413, 31);
+            this.magRange.Location = new System.Drawing.Point(5, 338);
             this.magRange.Name = "magRange";
-            this.magRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.magRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.magRange.RangeMaximum = 5;
             this.magRange.RangeMinimum = 3;
             this.magRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.magRange.Size = new System.Drawing.Size(37, 431);
+            this.magRange.Size = new System.Drawing.Size(365, 61);
             this.magRange.TabIndex = 15;
             this.magRange.TotalMaximum = 10;
             this.magRange.TotalMinimum = 0;
+            this.magRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.magRange_RangeChanged);
             // 
             // uvRange
             // 
@@ -198,16 +389,17 @@
             this.uvRange.HeightOfMark = 20;
             this.uvRange.HeightOfTick = 1;
             this.uvRange.InnerColor = System.Drawing.Color.DarkViolet;
-            this.uvRange.Location = new System.Drawing.Point(331, 31);
+            this.uvRange.Location = new System.Drawing.Point(5, 277);
             this.uvRange.Name = "uvRange";
-            this.uvRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.uvRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.uvRange.RangeMaximum = 5;
             this.uvRange.RangeMinimum = 3;
             this.uvRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.uvRange.Size = new System.Drawing.Size(37, 431);
+            this.uvRange.Size = new System.Drawing.Size(365, 61);
             this.uvRange.TabIndex = 14;
             this.uvRange.TotalMaximum = 10;
             this.uvRange.TotalMinimum = 0;
+            this.uvRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.uvRange_RangeChanged);
             // 
             // presRange
             // 
@@ -217,16 +409,18 @@
             this.presRange.HeightOfMark = 20;
             this.presRange.HeightOfTick = 1;
             this.presRange.InnerColor = System.Drawing.Color.Lime;
-            this.presRange.Location = new System.Drawing.Point(249, 31);
+            this.presRange.Location = new System.Drawing.Point(5, 216);
             this.presRange.Name = "presRange";
-            this.presRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.presRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.presRange.RangeMaximum = 5;
             this.presRange.RangeMinimum = 3;
             this.presRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.presRange.Size = new System.Drawing.Size(37, 431);
+            this.presRange.Size = new System.Drawing.Size(365, 61);
             this.presRange.TabIndex = 13;
             this.presRange.TotalMaximum = 10;
             this.presRange.TotalMinimum = 0;
+            this.presRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.presRange_RangeChanged);
+            this.presRange.Load += new System.EventHandler(this.presRange_Load);
             // 
             // humRange
             // 
@@ -236,16 +430,17 @@
             this.humRange.HeightOfMark = 20;
             this.humRange.HeightOfTick = 1;
             this.humRange.InnerColor = System.Drawing.Color.DeepSkyBlue;
-            this.humRange.Location = new System.Drawing.Point(167, 31);
+            this.humRange.Location = new System.Drawing.Point(5, 155);
             this.humRange.Name = "humRange";
-            this.humRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.humRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.humRange.RangeMaximum = 5;
             this.humRange.RangeMinimum = 3;
             this.humRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.humRange.Size = new System.Drawing.Size(37, 431);
+            this.humRange.Size = new System.Drawing.Size(365, 61);
             this.humRange.TabIndex = 12;
             this.humRange.TotalMaximum = 10;
             this.humRange.TotalMinimum = 0;
+            this.humRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.humRange_RangeChanged);
             // 
             // gForceRange
             // 
@@ -255,16 +450,17 @@
             this.gForceRange.HeightOfMark = 20;
             this.gForceRange.HeightOfTick = 1;
             this.gForceRange.InnerColor = System.Drawing.SystemColors.MenuText;
-            this.gForceRange.Location = new System.Drawing.Point(85, 31);
+            this.gForceRange.Location = new System.Drawing.Point(5, 94);
             this.gForceRange.Name = "gForceRange";
-            this.gForceRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.gForceRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.gForceRange.RangeMaximum = 5;
             this.gForceRange.RangeMinimum = 3;
             this.gForceRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.gForceRange.Size = new System.Drawing.Size(37, 431);
+            this.gForceRange.Size = new System.Drawing.Size(365, 61);
             this.gForceRange.TabIndex = 11;
             this.gForceRange.TotalMaximum = 10;
             this.gForceRange.TotalMinimum = 0;
+            this.gForceRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.gForceRange_RangeChanged);
             // 
             // tempRange
             // 
@@ -274,16 +470,17 @@
             this.tempRange.HeightOfMark = 20;
             this.tempRange.HeightOfTick = 1;
             this.tempRange.InnerColor = System.Drawing.Color.Red;
-            this.tempRange.Location = new System.Drawing.Point(3, 31);
+            this.tempRange.Location = new System.Drawing.Point(5, 33);
             this.tempRange.Name = "tempRange";
-            this.tempRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.vertical;
+            this.tempRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.tempRange.RangeMaximum = 5;
             this.tempRange.RangeMinimum = 3;
             this.tempRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.tempRange.Size = new System.Drawing.Size(37, 431);
+            this.tempRange.Size = new System.Drawing.Size(365, 61);
             this.tempRange.TabIndex = 10;
             this.tempRange.TotalMaximum = 10;
             this.tempRange.TotalMinimum = 0;
+            this.tempRange.RangeChanged += new Zzzz.ZzzzRangeBar.RangeChangedEventHandler(this.tempRange_RangeChanged);
             // 
             // menuStrip1
             // 
@@ -293,12 +490,11 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(647, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(640, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -306,9 +502,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFile,
-            this.toolStripSeparator,
-            this.toolStripSeparator1,
-            this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
@@ -323,96 +516,12 @@
             this.openFile.Text = "&Open";
             this.openFile.Click += new System.EventHandler(this.openFile_Click);
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(164, 6);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(164, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(164, 6);
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.cutToolStripMenuItem,
-            this.copyToolStripMenuItem,
-            this.pasteToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.selectAllToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.undoToolStripMenuItem.Text = "&Undo";
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.redoToolStripMenuItem.Text = "&Redo";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(162, 6);
-            // 
-            // cutToolStripMenuItem
-            // 
-            this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.cutToolStripMenuItem.Text = "Cu&t";
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.copyToolStripMenuItem.Text = "&Copy";
-            // 
-            // pasteToolStripMenuItem
-            // 
-            this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.pasteToolStripMenuItem.Text = "&Paste";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(162, 6);
-            // 
-            // selectAllToolStripMenuItem
-            // 
-            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
-            this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
             // 
@@ -520,153 +629,9 @@
             this.gmap.RetryLoadTile = 0;
             this.gmap.RoutesEnabled = true;
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(492, 510);
+            this.gmap.Size = new System.Drawing.Size(499, 510);
             this.gmap.TabIndex = 1;
             this.gmap.Zoom = 5D;
-            // 
-            // tempR_Max
-            // 
-            this.tempR_Max.AutoSize = true;
-            this.tempR_Max.Location = new System.Drawing.Point(33, 31);
-            this.tempR_Max.Name = "tempR_Max";
-            this.tempR_Max.Size = new System.Drawing.Size(46, 17);
-            this.tempR_Max.TabIndex = 19;
-            this.tempR_Max.Text = "label2";
-            // 
-            // tempR_Min
-            // 
-            this.tempR_Min.AutoSize = true;
-            this.tempR_Min.Location = new System.Drawing.Point(33, 445);
-            this.tempR_Min.Name = "tempR_Min";
-            this.tempR_Min.Size = new System.Drawing.Size(46, 17);
-            this.tempR_Min.TabIndex = 20;
-            this.tempR_Min.Text = "label3";
-            // 
-            // gRang_Max
-            // 
-            this.gRang_Max.AutoSize = true;
-            this.gRang_Max.Location = new System.Drawing.Point(115, 31);
-            this.gRang_Max.Name = "gRang_Max";
-            this.gRang_Max.Size = new System.Drawing.Size(46, 17);
-            this.gRang_Max.TabIndex = 21;
-            this.gRang_Max.Text = "label4";
-            // 
-            // gRang_Min
-            // 
-            this.gRang_Min.AutoSize = true;
-            this.gRang_Min.Location = new System.Drawing.Point(118, 444);
-            this.gRang_Min.Name = "gRang_Min";
-            this.gRang_Min.Size = new System.Drawing.Size(46, 17);
-            this.gRang_Min.TabIndex = 22;
-            this.gRang_Min.Text = "label5";
-            // 
-            // humRang_Max
-            // 
-            this.humRang_Max.AutoSize = true;
-            this.humRang_Max.Location = new System.Drawing.Point(197, 31);
-            this.humRang_Max.Name = "humRang_Max";
-            this.humRang_Max.Size = new System.Drawing.Size(46, 17);
-            this.humRang_Max.TabIndex = 23;
-            this.humRang_Max.Text = "label6";
-            // 
-            // humRang_Min
-            // 
-            this.humRang_Min.AutoSize = true;
-            this.humRang_Min.Location = new System.Drawing.Point(200, 444);
-            this.humRang_Min.Name = "humRang_Min";
-            this.humRang_Min.Size = new System.Drawing.Size(46, 17);
-            this.humRang_Min.TabIndex = 24;
-            this.humRang_Min.Text = "label7";
-            // 
-            // PresRange_Max
-            // 
-            this.PresRange_Max.AutoSize = true;
-            this.PresRange_Max.Location = new System.Drawing.Point(279, 31);
-            this.PresRange_Max.Name = "PresRange_Max";
-            this.PresRange_Max.Size = new System.Drawing.Size(46, 17);
-            this.PresRange_Max.TabIndex = 25;
-            this.PresRange_Max.Text = "label8";
-            // 
-            // PresRange_Min
-            // 
-            this.PresRange_Min.AutoSize = true;
-            this.PresRange_Min.Location = new System.Drawing.Point(279, 445);
-            this.PresRange_Min.Name = "PresRange_Min";
-            this.PresRange_Min.Size = new System.Drawing.Size(46, 17);
-            this.PresRange_Min.TabIndex = 26;
-            this.PresRange_Min.Text = "label9";
-            // 
-            // uvRange_Max
-            // 
-            this.uvRange_Max.AutoSize = true;
-            this.uvRange_Max.Location = new System.Drawing.Point(363, 31);
-            this.uvRange_Max.Name = "uvRange_Max";
-            this.uvRange_Max.Size = new System.Drawing.Size(54, 17);
-            this.uvRange_Max.TabIndex = 27;
-            this.uvRange_Max.Text = "label10";
-            // 
-            // uvRange_Min
-            // 
-            this.uvRange_Min.AutoSize = true;
-            this.uvRange_Min.Location = new System.Drawing.Point(363, 444);
-            this.uvRange_Min.Name = "uvRange_Min";
-            this.uvRange_Min.Size = new System.Drawing.Size(54, 17);
-            this.uvRange_Min.TabIndex = 28;
-            this.uvRange_Min.Text = "label11";
-            // 
-            // magRang_Max
-            // 
-            this.magRang_Max.AutoSize = true;
-            this.magRang_Max.Location = new System.Drawing.Point(444, 31);
-            this.magRang_Max.Name = "magRang_Max";
-            this.magRang_Max.Size = new System.Drawing.Size(54, 17);
-            this.magRang_Max.TabIndex = 29;
-            this.magRang_Max.Text = "label12";
-            // 
-            // magRang_Min
-            // 
-            this.magRang_Min.AutoSize = true;
-            this.magRang_Min.Location = new System.Drawing.Point(447, 444);
-            this.magRang_Min.Name = "magRang_Min";
-            this.magRang_Min.Size = new System.Drawing.Size(54, 17);
-            this.magRang_Min.TabIndex = 30;
-            this.magRang_Min.Text = "label13";
-            // 
-            // lumRang_Max
-            // 
-            this.lumRang_Max.AutoSize = true;
-            this.lumRang_Max.Location = new System.Drawing.Point(527, 31);
-            this.lumRang_Max.Name = "lumRang_Max";
-            this.lumRang_Max.Size = new System.Drawing.Size(54, 17);
-            this.lumRang_Max.TabIndex = 31;
-            this.lumRang_Max.Text = "label14";
-            // 
-            // lumRang_Min
-            // 
-            this.lumRang_Min.AutoSize = true;
-            this.lumRang_Min.Location = new System.Drawing.Point(530, 444);
-            this.lumRang_Min.Name = "lumRang_Min";
-            this.lumRang_Min.Size = new System.Drawing.Size(54, 17);
-            this.lumRang_Min.TabIndex = 32;
-            this.lumRang_Min.Text = "label15";
-            // 
-            // dbRang_Max
-            // 
-            this.dbRang_Max.AutoSize = true;
-            this.dbRang_Max.Location = new System.Drawing.Point(608, 32);
-            this.dbRang_Max.Name = "dbRang_Max";
-            this.dbRang_Max.Size = new System.Drawing.Size(54, 17);
-            this.dbRang_Max.TabIndex = 33;
-            this.dbRang_Max.Text = "label16";
-            // 
-            // dbRange_Max
-            // 
-            this.dbRange_Max.AutoSize = true;
-            this.dbRange_Max.Location = new System.Drawing.Point(611, 444);
-            this.dbRange_Max.Name = "dbRange_Max";
-            this.dbRange_Max.Size = new System.Drawing.Size(54, 17);
-            this.dbRange_Max.TabIndex = 34;
-            this.dbRange_Max.Text = "label17";
             // 
             // Form1
             // 
@@ -700,19 +665,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFile;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
@@ -732,22 +685,30 @@
         private Zzzz.ZzzzRangeBar uvRange;
         private Zzzz.ZzzzRangeBar presRange;
         private Zzzz.ZzzzRangeBar dbRange;
-        private System.Windows.Forms.Label dbRange_Max;
         private System.Windows.Forms.Label dbRang_Max;
-        private System.Windows.Forms.Label lumRang_Min;
         private System.Windows.Forms.Label lumRang_Max;
-        private System.Windows.Forms.Label magRang_Min;
         private System.Windows.Forms.Label magRang_Max;
-        private System.Windows.Forms.Label uvRange_Min;
-        private System.Windows.Forms.Label uvRange_Max;
-        private System.Windows.Forms.Label PresRange_Min;
-        private System.Windows.Forms.Label PresRange_Max;
-        private System.Windows.Forms.Label humRang_Min;
-        private System.Windows.Forms.Label humRang_Max;
-        private System.Windows.Forms.Label gRang_Min;
-        private System.Windows.Forms.Label gRang_Max;
-        private System.Windows.Forms.Label tempR_Min;
-        private System.Windows.Forms.Label tempR_Max;
+        private System.Windows.Forms.Label UV;
+        private System.Windows.Forms.Label Pressure;
+        private System.Windows.Forms.Label humidity;
+        private System.Windows.Forms.Label gForce;
+        private System.Windows.Forms.Label tempR;
+        private System.Windows.Forms.TextBox lumR_Max;
+        private System.Windows.Forms.TextBox lumR_Min;
+        private System.Windows.Forms.TextBox dbaR_Max;
+        private System.Windows.Forms.TextBox dbaR_Min;
+        private System.Windows.Forms.TextBox magR_Max;
+        private System.Windows.Forms.TextBox gRang_Max;
+        private System.Windows.Forms.TextBox magR_Min;
+        private System.Windows.Forms.TextBox uvR_Max;
+        private System.Windows.Forms.TextBox uvR_Min;
+        private System.Windows.Forms.TextBox presR_Max;
+        private System.Windows.Forms.TextBox presR_Min;
+        private System.Windows.Forms.TextBox humR_Max;
+        private System.Windows.Forms.TextBox humR_Min;
+        private System.Windows.Forms.TextBox gRang_Min;
+        private System.Windows.Forms.TextBox tempR_Max;
+        private System.Windows.Forms.TextBox tempR_Min;
         
     }
 }
