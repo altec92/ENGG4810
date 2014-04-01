@@ -60,7 +60,7 @@ namespace ENG4810_Software
             lumR_Min.Text = lumRange.RangeMinimum.ToString();
             // sound level limits
             dbRange.TotalMinimum = 0;
-            dbRange.TotalMaximum = 20;
+            dbRange.TotalMaximum = 200;
             dbaR_Max.Text = dbRange.RangeMaximum.ToString();
             dbaR_Min.Text = dbRange.RangeMinimum.ToString();
             // UV Range limits
@@ -68,6 +68,24 @@ namespace ENG4810_Software
             uvRange.TotalMinimum = 0;
             uvR_Max.Text = uvRange.RangeMaximum.ToString();
             uvR_Min.Text = uvRange.RangeMinimum.ToString();
+            
+            //DataSample ds = new DataSample();
+            //ds.humidity = 100;
+            //ds.magnetic_Field.Add((float)1.2345);
+            //ds.magnetic_Field.Add((float)1.45);
+            //ds.magnetic_Field.Add((float)100.6);
+            //ds.acceleration.Add((float)3.1);
+            //ds.acceleration.Add((float)3.4);
+            //ds.acceleration.Add((float)3.6);
+            //ds.latitude = (float)-27.56;
+            //ds.longitude = (float)56;
+            //ds.luminosity = 60000;
+            //ds.pressure = 34000;
+            //ds.sound = 120;
+            //ds.temperature = 85;
+            //ds.time = "2014-03-01T23:20:19+00:00";
+            //ds.uv = 1000;
+            //Console.Write(string.Join(",",ds.acceleration.ToArray()));
         }
 
 
