@@ -1,6 +1,6 @@
 ﻿namespace ENG4810_Software
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -78,6 +78,15 @@
             this.zoomPlu_B = new System.Windows.Forms.Button();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.dispForce = new System.Windows.Forms.CheckBox();
+            this.dispHum = new System.Windows.Forms.CheckBox();
+            this.dispPres = new System.Windows.Forms.CheckBox();
+            this.dispUV = new System.Windows.Forms.CheckBox();
+            this.dispMagF = new System.Windows.Forms.CheckBox();
+            this.dispDBA = new System.Windows.Forms.CheckBox();
+            this.dispLux = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,11 +99,20 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.dispLux);
+            this.splitContainer1.Panel1.Controls.Add(this.dispDBA);
+            this.splitContainer1.Panel1.Controls.Add(this.dispMagF);
+            this.splitContainer1.Panel1.Controls.Add(this.dispUV);
+            this.splitContainer1.Panel1.Controls.Add(this.dispPres);
+            this.splitContainer1.Panel1.Controls.Add(this.dispHum);
+            this.splitContainer1.Panel1.Controls.Add(this.dispForce);
+            this.splitContainer1.Panel1.Controls.Add(this.checkBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
             this.splitContainer1.Panel1.Controls.Add(this.lumR_Max);
             this.splitContainer1.Panel1.Controls.Add(this.lumR_Min);
             this.splitContainer1.Panel1.Controls.Add(this.dbaR_Max);
@@ -134,137 +152,136 @@
             this.splitContainer1.Panel2.Controls.Add(this.zoomMin_B);
             this.splitContainer1.Panel2.Controls.Add(this.zoomPlu_B);
             this.splitContainer1.Panel2.Controls.Add(this.gmap);
-            this.splitContainer1.Size = new System.Drawing.Size(856, 423);
-            this.splitContainer1.SplitterDistance = 423;
-            this.splitContainer1.SplitterWidth = 3;
+            this.splitContainer1.Size = new System.Drawing.Size(1141, 521);
+            this.splitContainer1.SplitterDistance = 556;
             this.splitContainer1.TabIndex = 0;
             // 
             // lumR_Max
             // 
-            this.lumR_Max.Location = new System.Drawing.Point(342, 390);
-            this.lumR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lumR_Max.Location = new System.Drawing.Point(456, 480);
+            this.lumR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lumR_Max.Name = "lumR_Max";
-            this.lumR_Max.Size = new System.Drawing.Size(47, 20);
+            this.lumR_Max.Size = new System.Drawing.Size(61, 22);
             this.lumR_Max.TabIndex = 50;
             // 
             // lumR_Min
             // 
-            this.lumR_Min.Location = new System.Drawing.Point(287, 390);
-            this.lumR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lumR_Min.Location = new System.Drawing.Point(383, 480);
+            this.lumR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lumR_Min.Name = "lumR_Min";
-            this.lumR_Min.Size = new System.Drawing.Size(47, 20);
+            this.lumR_Min.Size = new System.Drawing.Size(61, 22);
             this.lumR_Min.TabIndex = 49;
             // 
             // dbaR_Max
             // 
-            this.dbaR_Max.Location = new System.Drawing.Point(342, 339);
-            this.dbaR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dbaR_Max.Location = new System.Drawing.Point(456, 417);
+            this.dbaR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dbaR_Max.Name = "dbaR_Max";
-            this.dbaR_Max.Size = new System.Drawing.Size(47, 20);
+            this.dbaR_Max.Size = new System.Drawing.Size(61, 22);
             this.dbaR_Max.TabIndex = 48;
             // 
             // dbaR_Min
             // 
-            this.dbaR_Min.Location = new System.Drawing.Point(287, 340);
-            this.dbaR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dbaR_Min.Location = new System.Drawing.Point(383, 418);
+            this.dbaR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dbaR_Min.Name = "dbaR_Min";
-            this.dbaR_Min.Size = new System.Drawing.Size(47, 20);
+            this.dbaR_Min.Size = new System.Drawing.Size(61, 22);
             this.dbaR_Min.TabIndex = 47;
             // 
             // magR_Max
             // 
-            this.magR_Max.Location = new System.Drawing.Point(342, 290);
-            this.magR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.magR_Max.Location = new System.Drawing.Point(456, 357);
+            this.magR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.magR_Max.Name = "magR_Max";
-            this.magR_Max.Size = new System.Drawing.Size(47, 20);
+            this.magR_Max.Size = new System.Drawing.Size(61, 22);
             this.magR_Max.TabIndex = 46;
             // 
             // gRang_Max
             // 
-            this.gRang_Max.Location = new System.Drawing.Point(342, 93);
-            this.gRang_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gRang_Max.Location = new System.Drawing.Point(456, 114);
+            this.gRang_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gRang_Max.Name = "gRang_Max";
-            this.gRang_Max.Size = new System.Drawing.Size(47, 20);
+            this.gRang_Max.Size = new System.Drawing.Size(61, 22);
             this.gRang_Max.TabIndex = 45;
             // 
             // magR_Min
             // 
-            this.magR_Min.Location = new System.Drawing.Point(287, 291);
-            this.magR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.magR_Min.Location = new System.Drawing.Point(383, 358);
+            this.magR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.magR_Min.Name = "magR_Min";
-            this.magR_Min.Size = new System.Drawing.Size(47, 20);
+            this.magR_Min.Size = new System.Drawing.Size(61, 22);
             this.magR_Min.TabIndex = 44;
             // 
             // uvR_Max
             // 
-            this.uvR_Max.Location = new System.Drawing.Point(342, 241);
-            this.uvR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uvR_Max.Location = new System.Drawing.Point(456, 297);
+            this.uvR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uvR_Max.Name = "uvR_Max";
-            this.uvR_Max.Size = new System.Drawing.Size(47, 20);
+            this.uvR_Max.Size = new System.Drawing.Size(61, 22);
             this.uvR_Max.TabIndex = 43;
             // 
             // uvR_Min
             // 
-            this.uvR_Min.Location = new System.Drawing.Point(287, 241);
-            this.uvR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uvR_Min.Location = new System.Drawing.Point(383, 297);
+            this.uvR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uvR_Min.Name = "uvR_Min";
-            this.uvR_Min.Size = new System.Drawing.Size(47, 20);
+            this.uvR_Min.Size = new System.Drawing.Size(61, 22);
             this.uvR_Min.TabIndex = 42;
             // 
             // presR_Max
             // 
-            this.presR_Max.Location = new System.Drawing.Point(342, 192);
-            this.presR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.presR_Max.Location = new System.Drawing.Point(456, 236);
+            this.presR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.presR_Max.Name = "presR_Max";
-            this.presR_Max.Size = new System.Drawing.Size(47, 20);
+            this.presR_Max.Size = new System.Drawing.Size(61, 22);
             this.presR_Max.TabIndex = 41;
             // 
             // presR_Min
             // 
-            this.presR_Min.Location = new System.Drawing.Point(287, 192);
-            this.presR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.presR_Min.Location = new System.Drawing.Point(383, 236);
+            this.presR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.presR_Min.Name = "presR_Min";
-            this.presR_Min.Size = new System.Drawing.Size(47, 20);
+            this.presR_Min.Size = new System.Drawing.Size(61, 22);
             this.presR_Min.TabIndex = 40;
             // 
             // humR_Max
             // 
-            this.humR_Max.Location = new System.Drawing.Point(338, 142);
-            this.humR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.humR_Max.Location = new System.Drawing.Point(456, 174);
+            this.humR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.humR_Max.Name = "humR_Max";
-            this.humR_Max.Size = new System.Drawing.Size(47, 20);
+            this.humR_Max.Size = new System.Drawing.Size(61, 22);
             this.humR_Max.TabIndex = 39;
             // 
             // humR_Min
             // 
-            this.humR_Min.Location = new System.Drawing.Point(287, 142);
-            this.humR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.humR_Min.Location = new System.Drawing.Point(383, 176);
+            this.humR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.humR_Min.Name = "humR_Min";
-            this.humR_Min.Size = new System.Drawing.Size(47, 20);
+            this.humR_Min.Size = new System.Drawing.Size(61, 22);
             this.humR_Min.TabIndex = 38;
             // 
             // gRang_Min
             // 
-            this.gRang_Min.Location = new System.Drawing.Point(287, 93);
-            this.gRang_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gRang_Min.Location = new System.Drawing.Point(383, 114);
+            this.gRang_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gRang_Min.Name = "gRang_Min";
-            this.gRang_Min.Size = new System.Drawing.Size(47, 20);
+            this.gRang_Min.Size = new System.Drawing.Size(61, 22);
             this.gRang_Min.TabIndex = 36;
             // 
             // tempR_Max
             // 
-            this.tempR_Max.Location = new System.Drawing.Point(342, 43);
-            this.tempR_Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tempR_Max.Location = new System.Drawing.Point(456, 53);
+            this.tempR_Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tempR_Max.Name = "tempR_Max";
-            this.tempR_Max.Size = new System.Drawing.Size(47, 20);
+            this.tempR_Max.Size = new System.Drawing.Size(61, 22);
             this.tempR_Max.TabIndex = 35;
             // 
             // tempR_Min
             // 
-            this.tempR_Min.Location = new System.Drawing.Point(287, 43);
-            this.tempR_Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tempR_Min.Location = new System.Drawing.Point(383, 53);
+            this.tempR_Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tempR_Min.Name = "tempR_Min";
-            this.tempR_Min.Size = new System.Drawing.Size(47, 20);
+            this.tempR_Min.Size = new System.Drawing.Size(61, 22);
             this.tempR_Min.TabIndex = 34;
             // 
             // lumRange
@@ -275,14 +292,14 @@
             this.lumRange.HeightOfMark = 20;
             this.lumRange.HeightOfTick = 1;
             this.lumRange.InnerColor = System.Drawing.Color.Yellow;
-            this.lumRange.Location = new System.Drawing.Point(4, 374);
-            this.lumRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lumRange.Location = new System.Drawing.Point(5, 460);
+            this.lumRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lumRange.Name = "lumRange";
             this.lumRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.lumRange.RangeMaximum = 5;
             this.lumRange.RangeMinimum = 3;
             this.lumRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.lumRange.Size = new System.Drawing.Size(274, 50);
+            this.lumRange.Size = new System.Drawing.Size(365, 62);
             this.lumRange.TabIndex = 16;
             this.lumRange.TotalMaximum = 10;
             this.lumRange.TotalMinimum = 0;
@@ -291,80 +308,72 @@
             // dbRang_Max
             // 
             this.dbRang_Max.AutoSize = true;
-            this.dbRang_Max.Location = new System.Drawing.Point(282, 324);
-            this.dbRang_Max.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.dbRang_Max.Location = new System.Drawing.Point(376, 399);
             this.dbRang_Max.Name = "dbRang_Max";
-            this.dbRang_Max.Size = new System.Drawing.Size(67, 13);
+            this.dbRang_Max.Size = new System.Drawing.Size(87, 17);
             this.dbRang_Max.TabIndex = 33;
             this.dbRang_Max.Text = "Sound Level";
             // 
             // lumRang_Max
             // 
             this.lumRang_Max.AutoSize = true;
-            this.lumRang_Max.Location = new System.Drawing.Point(282, 374);
-            this.lumRang_Max.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lumRang_Max.Location = new System.Drawing.Point(376, 460);
             this.lumRang_Max.Name = "lumRang_Max";
-            this.lumRang_Max.Size = new System.Drawing.Size(56, 13);
+            this.lumRang_Max.Size = new System.Drawing.Size(75, 17);
             this.lumRang_Max.TabIndex = 31;
             this.lumRang_Max.Text = "Luminosity";
             // 
             // magRang_Max
             // 
             this.magRang_Max.AutoSize = true;
-            this.magRang_Max.Location = new System.Drawing.Point(282, 275);
-            this.magRang_Max.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.magRang_Max.Location = new System.Drawing.Point(376, 338);
             this.magRang_Max.Name = "magRang_Max";
-            this.magRang_Max.Size = new System.Drawing.Size(98, 13);
+            this.magRang_Max.Size = new System.Drawing.Size(130, 17);
             this.magRang_Max.TabIndex = 29;
             this.magRang_Max.Text = "Magnetic Field (uT)";
             // 
             // UV
             // 
             this.UV.AutoSize = true;
-            this.UV.Location = new System.Drawing.Point(282, 225);
-            this.UV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UV.Location = new System.Drawing.Point(376, 277);
             this.UV.Name = "UV";
-            this.UV.Size = new System.Drawing.Size(107, 13);
+            this.UV.Size = new System.Drawing.Size(137, 17);
             this.UV.TabIndex = 27;
             this.UV.Text = "UV Light (mW/cm^2)";
             // 
             // Pressure
             // 
             this.Pressure.AutoSize = true;
-            this.Pressure.Location = new System.Drawing.Point(282, 176);
-            this.Pressure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Pressure.Location = new System.Drawing.Point(376, 217);
             this.Pressure.Name = "Pressure";
-            this.Pressure.Size = new System.Drawing.Size(76, 13);
+            this.Pressure.Size = new System.Drawing.Size(103, 17);
             this.Pressure.TabIndex = 26;
             this.Pressure.Text = "Pressure (kPa)";
             // 
             // humidity
             // 
             this.humidity.AutoSize = true;
-            this.humidity.Location = new System.Drawing.Point(282, 126);
-            this.humidity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.humidity.Location = new System.Drawing.Point(376, 155);
             this.humidity.Name = "humidity";
-            this.humidity.Size = new System.Drawing.Size(80, 13);
+            this.humidity.Size = new System.Drawing.Size(108, 17);
             this.humidity.TabIndex = 23;
             this.humidity.Text = "Humidity (%RH)";
             // 
             // gForce
             // 
             this.gForce.AutoSize = true;
-            this.gForce.Location = new System.Drawing.Point(282, 76);
-            this.gForce.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gForce.Location = new System.Drawing.Point(376, 94);
             this.gForce.Name = "gForce";
-            this.gForce.Size = new System.Drawing.Size(60, 13);
+            this.gForce.Size = new System.Drawing.Size(81, 17);
             this.gForce.TabIndex = 21;
             this.gForce.Text = "G Force (g)";
             // 
             // tempR
             // 
             this.tempR.AutoSize = true;
-            this.tempR.Location = new System.Drawing.Point(282, 27);
-            this.tempR.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tempR.Location = new System.Drawing.Point(376, 33);
             this.tempR.Name = "tempR";
-            this.tempR.Size = new System.Drawing.Size(83, 13);
+            this.tempR.Size = new System.Drawing.Size(113, 17);
             this.tempR.TabIndex = 19;
             this.tempR.Text = "Temperature (C)";
             // 
@@ -376,14 +385,14 @@
             this.dbRange.HeightOfMark = 20;
             this.dbRange.HeightOfTick = 1;
             this.dbRange.InnerColor = System.Drawing.Color.White;
-            this.dbRange.Location = new System.Drawing.Point(4, 324);
-            this.dbRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dbRange.Location = new System.Drawing.Point(5, 399);
+            this.dbRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dbRange.Name = "dbRange";
             this.dbRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.dbRange.RangeMaximum = 5;
             this.dbRange.RangeMinimum = 3;
             this.dbRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.dbRange.Size = new System.Drawing.Size(274, 50);
+            this.dbRange.Size = new System.Drawing.Size(365, 62);
             this.dbRange.TabIndex = 17;
             this.dbRange.TotalMaximum = 10;
             this.dbRange.TotalMinimum = 0;
@@ -397,14 +406,14 @@
             this.magRange.HeightOfMark = 20;
             this.magRange.HeightOfTick = 1;
             this.magRange.InnerColor = System.Drawing.Color.DeepPink;
-            this.magRange.Location = new System.Drawing.Point(4, 275);
-            this.magRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.magRange.Location = new System.Drawing.Point(5, 338);
+            this.magRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.magRange.Name = "magRange";
             this.magRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.magRange.RangeMaximum = 5;
             this.magRange.RangeMinimum = 3;
             this.magRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.magRange.Size = new System.Drawing.Size(274, 50);
+            this.magRange.Size = new System.Drawing.Size(365, 62);
             this.magRange.TabIndex = 15;
             this.magRange.TotalMaximum = 10;
             this.magRange.TotalMinimum = 0;
@@ -418,14 +427,14 @@
             this.uvRange.HeightOfMark = 20;
             this.uvRange.HeightOfTick = 1;
             this.uvRange.InnerColor = System.Drawing.Color.DarkViolet;
-            this.uvRange.Location = new System.Drawing.Point(4, 225);
-            this.uvRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uvRange.Location = new System.Drawing.Point(5, 277);
+            this.uvRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uvRange.Name = "uvRange";
             this.uvRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.uvRange.RangeMaximum = 5;
             this.uvRange.RangeMinimum = 3;
             this.uvRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.uvRange.Size = new System.Drawing.Size(274, 50);
+            this.uvRange.Size = new System.Drawing.Size(365, 62);
             this.uvRange.TabIndex = 14;
             this.uvRange.TotalMaximum = 10;
             this.uvRange.TotalMinimum = 0;
@@ -439,14 +448,14 @@
             this.presRange.HeightOfMark = 20;
             this.presRange.HeightOfTick = 1;
             this.presRange.InnerColor = System.Drawing.Color.Lime;
-            this.presRange.Location = new System.Drawing.Point(4, 176);
-            this.presRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.presRange.Location = new System.Drawing.Point(5, 217);
+            this.presRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.presRange.Name = "presRange";
             this.presRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.presRange.RangeMaximum = 5;
             this.presRange.RangeMinimum = 3;
             this.presRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.presRange.Size = new System.Drawing.Size(274, 50);
+            this.presRange.Size = new System.Drawing.Size(365, 62);
             this.presRange.TabIndex = 13;
             this.presRange.TotalMaximum = 10;
             this.presRange.TotalMinimum = 0;
@@ -461,14 +470,14 @@
             this.humRange.HeightOfMark = 20;
             this.humRange.HeightOfTick = 1;
             this.humRange.InnerColor = System.Drawing.Color.DeepSkyBlue;
-            this.humRange.Location = new System.Drawing.Point(4, 126);
-            this.humRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.humRange.Location = new System.Drawing.Point(5, 155);
+            this.humRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.humRange.Name = "humRange";
             this.humRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.humRange.RangeMaximum = 5;
             this.humRange.RangeMinimum = 3;
             this.humRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.humRange.Size = new System.Drawing.Size(274, 50);
+            this.humRange.Size = new System.Drawing.Size(365, 62);
             this.humRange.TabIndex = 12;
             this.humRange.TotalMaximum = 10;
             this.humRange.TotalMinimum = 0;
@@ -482,14 +491,14 @@
             this.gForceRange.HeightOfMark = 20;
             this.gForceRange.HeightOfTick = 1;
             this.gForceRange.InnerColor = System.Drawing.SystemColors.MenuText;
-            this.gForceRange.Location = new System.Drawing.Point(4, 76);
-            this.gForceRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gForceRange.Location = new System.Drawing.Point(5, 94);
+            this.gForceRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gForceRange.Name = "gForceRange";
             this.gForceRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.gForceRange.RangeMaximum = 5;
             this.gForceRange.RangeMinimum = 3;
             this.gForceRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.gForceRange.Size = new System.Drawing.Size(274, 50);
+            this.gForceRange.Size = new System.Drawing.Size(365, 62);
             this.gForceRange.TabIndex = 11;
             this.gForceRange.TotalMaximum = 10;
             this.gForceRange.TotalMinimum = 0;
@@ -503,14 +512,14 @@
             this.tempRange.HeightOfMark = 20;
             this.tempRange.HeightOfTick = 1;
             this.tempRange.InnerColor = System.Drawing.Color.Red;
-            this.tempRange.Location = new System.Drawing.Point(4, 27);
-            this.tempRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tempRange.Location = new System.Drawing.Point(5, 33);
+            this.tempRange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tempRange.Name = "tempRange";
             this.tempRange.Orientation = Zzzz.ZzzzRangeBar.RangeBarOrientation.horizontal;
             this.tempRange.RangeMaximum = 5;
             this.tempRange.RangeMinimum = 3;
             this.tempRange.ScaleOrientation = Zzzz.ZzzzRangeBar.TopBottomOrientation.bottom;
-            this.tempRange.Size = new System.Drawing.Size(274, 50);
+            this.tempRange.Size = new System.Drawing.Size(365, 62);
             this.tempRange.TabIndex = 10;
             this.tempRange.TotalMaximum = 10;
             this.tempRange.TotalMinimum = 0;
@@ -528,8 +537,8 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(423, 23);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(556, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -539,7 +548,7 @@
             this.openFile,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openFile
@@ -547,14 +556,14 @@
             this.openFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openFile.Name = "openFile";
             this.openFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openFile.Size = new System.Drawing.Size(146, 22);
+            this.openFile.Size = new System.Drawing.Size(167, 24);
             this.openFile.Text = "&Open";
             this.openFile.Click += new System.EventHandler(this.openFile_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -564,19 +573,19 @@
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 19);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
@@ -588,45 +597,45 @@
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(133, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // zoomMin_B
             // 
             this.zoomMin_B.BackColor = System.Drawing.Color.Transparent;
-            this.zoomMin_B.Location = new System.Drawing.Point(2, 2);
-            this.zoomMin_B.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.zoomMin_B.Location = new System.Drawing.Point(3, 2);
+            this.zoomMin_B.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.zoomMin_B.Name = "zoomMin_B";
-            this.zoomMin_B.Size = new System.Drawing.Size(23, 23);
+            this.zoomMin_B.Size = new System.Drawing.Size(35, 33);
             this.zoomMin_B.TabIndex = 5;
             this.zoomMin_B.Text = "\\u002d";
             this.zoomMin_B.UseVisualStyleBackColor = false;
@@ -636,10 +645,10 @@
             // 
             this.zoomPlu_B.AutoSize = true;
             this.zoomPlu_B.BackColor = System.Drawing.Color.Transparent;
-            this.zoomPlu_B.Location = new System.Drawing.Point(26, 2);
-            this.zoomPlu_B.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.zoomPlu_B.Location = new System.Drawing.Point(44, 2);
+            this.zoomPlu_B.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.zoomPlu_B.Name = "zoomPlu_B";
-            this.zoomPlu_B.Size = new System.Drawing.Size(23, 23);
+            this.zoomPlu_B.Size = new System.Drawing.Size(35, 33);
             this.zoomPlu_B.TabIndex = 3;
             this.zoomPlu_B.Text = "+";
             this.zoomPlu_B.UseVisualStyleBackColor = false;
@@ -647,16 +656,15 @@
             // 
             // gmap
             // 
-            this.gmap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gmap.AutoSize = true;
             this.gmap.Bearing = 0F;
+            this.gmap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gmap.CanDragMap = true;
+            this.gmap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gmap.GrayScaleMode = false;
             this.gmap.LevelsKeepInMemmory = 5;
-            this.gmap.Location = new System.Drawing.Point(2, 2);
-            this.gmap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gmap.Location = new System.Drawing.Point(0, 0);
+            this.gmap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gmap.MarkersEnabled = true;
             this.gmap.MaxZoom = 18;
             this.gmap.MinZoom = 0;
@@ -667,22 +675,104 @@
             this.gmap.RetryLoadTile = 0;
             this.gmap.RoutesEnabled = true;
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(430, 420);
+            this.gmap.Size = new System.Drawing.Size(581, 521);
             this.gmap.TabIndex = 1;
             this.gmap.Zoom = 5D;
             // 
-            // Form1
+            // checkBox1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(8, 8);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(98, 21);
+            this.checkBox1.TabIndex = 51;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(523, 54);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(18, 17);
+            this.checkBox2.TabIndex = 52;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // dispForce
+            // 
+            this.dispForce.AutoSize = true;
+            this.dispForce.Location = new System.Drawing.Point(523, 118);
+            this.dispForce.Name = "dispForce";
+            this.dispForce.Size = new System.Drawing.Size(18, 17);
+            this.dispForce.TabIndex = 53;
+            this.dispForce.UseVisualStyleBackColor = true;
+            // 
+            // dispHum
+            // 
+            this.dispHum.AutoSize = true;
+            this.dispHum.Location = new System.Drawing.Point(523, 180);
+            this.dispHum.Name = "dispHum";
+            this.dispHum.Size = new System.Drawing.Size(18, 17);
+            this.dispHum.TabIndex = 54;
+            this.dispHum.UseVisualStyleBackColor = true;
+            // 
+            // dispPres
+            // 
+            this.dispPres.AutoSize = true;
+            this.dispPres.Location = new System.Drawing.Point(523, 241);
+            this.dispPres.Name = "dispPres";
+            this.dispPres.Size = new System.Drawing.Size(18, 17);
+            this.dispPres.TabIndex = 55;
+            this.dispPres.UseVisualStyleBackColor = true;
+            // 
+            // dispUV
+            // 
+            this.dispUV.AutoSize = true;
+            this.dispUV.Location = new System.Drawing.Point(523, 302);
+            this.dispUV.Name = "dispUV";
+            this.dispUV.Size = new System.Drawing.Size(18, 17);
+            this.dispUV.TabIndex = 56;
+            this.dispUV.UseVisualStyleBackColor = true;
+            // 
+            // dispMagF
+            // 
+            this.dispMagF.AutoSize = true;
+            this.dispMagF.Location = new System.Drawing.Point(523, 361);
+            this.dispMagF.Name = "dispMagF";
+            this.dispMagF.Size = new System.Drawing.Size(18, 17);
+            this.dispMagF.TabIndex = 57;
+            this.dispMagF.UseVisualStyleBackColor = true;
+            // 
+            // dispDBA
+            // 
+            this.dispDBA.AutoSize = true;
+            this.dispDBA.Location = new System.Drawing.Point(523, 423);
+            this.dispDBA.Name = "dispDBA";
+            this.dispDBA.Size = new System.Drawing.Size(18, 17);
+            this.dispDBA.TabIndex = 58;
+            this.dispDBA.UseVisualStyleBackColor = true;
+            // 
+            // dispLux
+            // 
+            this.dispLux.AutoSize = true;
+            this.dispLux.Location = new System.Drawing.Point(523, 485);
+            this.dispLux.Name = "dispLux";
+            this.dispLux.Size = new System.Drawing.Size(18, 17);
+            this.dispLux.TabIndex = 59;
+            this.dispLux.UseVisualStyleBackColor = true;
+            // 
+            // MainWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(856, 423);
+            this.ClientSize = new System.Drawing.Size(1141, 521);
             this.Controls.Add(this.splitContainer1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(1444, 885);
-            this.MinimumSize = new System.Drawing.Size(679, 462);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1919, 1078);
+            this.MinimumSize = new System.Drawing.Size(899, 558);
+            this.Name = "MainWindow";
             this.Text = "Route Tracker";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -748,6 +838,15 @@
         private System.Windows.Forms.TextBox gRang_Min;
         private System.Windows.Forms.TextBox tempR_Max;
         private System.Windows.Forms.TextBox tempR_Min;
+        private System.Windows.Forms.CheckBox dispLux;
+        private System.Windows.Forms.CheckBox dispDBA;
+        private System.Windows.Forms.CheckBox dispMagF;
+        private System.Windows.Forms.CheckBox dispUV;
+        private System.Windows.Forms.CheckBox dispPres;
+        private System.Windows.Forms.CheckBox dispHum;
+        private System.Windows.Forms.CheckBox dispForce;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
         
     }
 }

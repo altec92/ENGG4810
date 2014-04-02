@@ -1,5 +1,5 @@
 ﻿#define DEBUG
-using GMap.NET;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms.ToolTips;
 
 
 namespace ENG4810_Software
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public Form1()
+
+        public MainWindow()
         {
             //Everything that needs to happen at startup. 
             InitializeComponent();
@@ -25,7 +31,11 @@ namespace ENG4810_Software
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Position = new GMap.NET.PointLatLng(-25.971684, 32.589759);
+            
+            //better performance for lots of objects. 
+            gmap.ForceDoubleBuffer = true; 
 
+            //Initialise Maximums and Minimums of the RangeBars including lables
             zoomMin_B.Text = "\u002d";
             // not following limits Max min Swapped due to orientation of the range bars. 
             //humidity bar limits
@@ -69,23 +79,12 @@ namespace ENG4810_Software
             uvR_Max.Text = uvRange.RangeMaximum.ToString();
             uvR_Min.Text = uvRange.RangeMinimum.ToString();
             
-            //DataSample ds = new DataSample();
-            //ds.humidity = 100;
-            //ds.magnetic_Field.Add((float)1.2345);
-            //ds.magnetic_Field.Add((float)1.45);
-            //ds.magnetic_Field.Add((float)100.6);
-            //ds.acceleration.Add((float)3.1);
-            //ds.acceleration.Add((float)3.4);
-            //ds.acceleration.Add((float)3.6);
-            //ds.latitude = (float)-27.56;
-            //ds.longitude = (float)56;
-            //ds.luminosity = 60000;
-            //ds.pressure = 34000;
-            //ds.sound = 120;
-            //ds.temperature = 85;
-            //ds.time = "2014-03-01T23:20:19+00:00";
-            //ds.uv = 1000;
-            //Console.Write(string.Join(",",ds.acceleration.ToArray()));
+            //Initialise marker overlay
+            GMapOverlay markerOverlay = new GMapOverlay(gmap, "Markers");
+            gmap.Overlays.Add(markerOverlay);
+           // place_Marker(markerOverlay, -25.971684, 32.589759);
+
+           //Console.Write(string.Join(",",ds.acceleration.ToArray()));
         }
 
 
@@ -179,5 +178,21 @@ namespace ENG4810_Software
             tempR_Min.Text = tempRange.RangeMinimum.ToString();
         }
 
+        /*
+         * Place Green Marker on a given overlay at a given Latitude and Longitude
+         */
+        private void place_Marker(GMapOverlay overlay, double lat, double lng)
+        {
+            GMapMarkerGoogleGreen marker = new GMapMarkerGoogleGreen(new PointLatLng(lat, lng));
+            overlay.Markers.Add(marker);
+        }
+     
+
     }
+    
 }
+// random code snppets
+//for (int i = 0; i < markerOverlay.Markers.Count; i++)
+//{
+//    markerOverlay.Markers.RemoveAt(i);
+//}

@@ -36,6 +36,7 @@ namespace ENG4810_Software
             this.humidity = 0;
             this.acceleration = new List<float>();
             this.magnetic_Field = new List<float>();
+            this.temperature = 0;
         }
     }
 }
