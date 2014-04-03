@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dispLux = new System.Windows.Forms.CheckBox();
+            this.dispDBA = new System.Windows.Forms.CheckBox();
+            this.dispMagF = new System.Windows.Forms.CheckBox();
+            this.dispUV = new System.Windows.Forms.CheckBox();
+            this.dispPres = new System.Windows.Forms.CheckBox();
+            this.dispHum = new System.Windows.Forms.CheckBox();
+            this.dispForce = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.lumR_Max = new System.Windows.Forms.TextBox();
             this.lumR_Min = new System.Windows.Forms.TextBox();
             this.dbaR_Max = new System.Windows.Forms.TextBox();
@@ -66,7 +74,6 @@
             this.openFile = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,15 +85,6 @@
             this.zoomPlu_B = new System.Windows.Forms.Button();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.dispForce = new System.Windows.Forms.CheckBox();
-            this.dispHum = new System.Windows.Forms.CheckBox();
-            this.dispPres = new System.Windows.Forms.CheckBox();
-            this.dispUV = new System.Windows.Forms.CheckBox();
-            this.dispMagF = new System.Windows.Forms.CheckBox();
-            this.dispDBA = new System.Windows.Forms.CheckBox();
-            this.dispLux = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -112,7 +110,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.dispHum);
             this.splitContainer1.Panel1.Controls.Add(this.dispForce);
             this.splitContainer1.Panel1.Controls.Add(this.checkBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox1);
             this.splitContainer1.Panel1.Controls.Add(this.lumR_Max);
             this.splitContainer1.Panel1.Controls.Add(this.lumR_Min);
             this.splitContainer1.Panel1.Controls.Add(this.dbaR_Max);
@@ -155,6 +152,78 @@
             this.splitContainer1.Size = new System.Drawing.Size(1141, 521);
             this.splitContainer1.SplitterDistance = 556;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // dispLux
+            // 
+            this.dispLux.AutoSize = true;
+            this.dispLux.Location = new System.Drawing.Point(523, 485);
+            this.dispLux.Name = "dispLux";
+            this.dispLux.Size = new System.Drawing.Size(18, 17);
+            this.dispLux.TabIndex = 59;
+            this.dispLux.UseVisualStyleBackColor = true;
+            // 
+            // dispDBA
+            // 
+            this.dispDBA.AutoSize = true;
+            this.dispDBA.Location = new System.Drawing.Point(523, 423);
+            this.dispDBA.Name = "dispDBA";
+            this.dispDBA.Size = new System.Drawing.Size(18, 17);
+            this.dispDBA.TabIndex = 58;
+            this.dispDBA.UseVisualStyleBackColor = true;
+            // 
+            // dispMagF
+            // 
+            this.dispMagF.AutoSize = true;
+            this.dispMagF.Location = new System.Drawing.Point(523, 361);
+            this.dispMagF.Name = "dispMagF";
+            this.dispMagF.Size = new System.Drawing.Size(18, 17);
+            this.dispMagF.TabIndex = 57;
+            this.dispMagF.UseVisualStyleBackColor = true;
+            // 
+            // dispUV
+            // 
+            this.dispUV.AutoSize = true;
+            this.dispUV.Location = new System.Drawing.Point(523, 302);
+            this.dispUV.Name = "dispUV";
+            this.dispUV.Size = new System.Drawing.Size(18, 17);
+            this.dispUV.TabIndex = 56;
+            this.dispUV.UseVisualStyleBackColor = true;
+            // 
+            // dispPres
+            // 
+            this.dispPres.AutoSize = true;
+            this.dispPres.Location = new System.Drawing.Point(523, 241);
+            this.dispPres.Name = "dispPres";
+            this.dispPres.Size = new System.Drawing.Size(18, 17);
+            this.dispPres.TabIndex = 55;
+            this.dispPres.UseVisualStyleBackColor = true;
+            // 
+            // dispHum
+            // 
+            this.dispHum.AutoSize = true;
+            this.dispHum.Location = new System.Drawing.Point(523, 180);
+            this.dispHum.Name = "dispHum";
+            this.dispHum.Size = new System.Drawing.Size(18, 17);
+            this.dispHum.TabIndex = 54;
+            this.dispHum.UseVisualStyleBackColor = true;
+            // 
+            // dispForce
+            // 
+            this.dispForce.AutoSize = true;
+            this.dispForce.Location = new System.Drawing.Point(523, 118);
+            this.dispForce.Name = "dispForce";
+            this.dispForce.Size = new System.Drawing.Size(18, 17);
+            this.dispForce.TabIndex = 53;
+            this.dispForce.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(523, 54);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(18, 17);
+            this.checkBox2.TabIndex = 52;
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // lumR_Max
             // 
@@ -570,17 +639,10 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.toolsToolStripMenuItem.Text = "&Tools";
-            // 
-            // customizeToolStripMenuItem
-            // 
-            this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
@@ -603,30 +665,30 @@
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // zoomMin_B
@@ -679,88 +741,6 @@
             this.gmap.TabIndex = 1;
             this.gmap.Zoom = 5D;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(8, 8);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(98, 21);
-            this.checkBox1.TabIndex = 51;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(523, 54);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(18, 17);
-            this.checkBox2.TabIndex = 52;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // dispForce
-            // 
-            this.dispForce.AutoSize = true;
-            this.dispForce.Location = new System.Drawing.Point(523, 118);
-            this.dispForce.Name = "dispForce";
-            this.dispForce.Size = new System.Drawing.Size(18, 17);
-            this.dispForce.TabIndex = 53;
-            this.dispForce.UseVisualStyleBackColor = true;
-            // 
-            // dispHum
-            // 
-            this.dispHum.AutoSize = true;
-            this.dispHum.Location = new System.Drawing.Point(523, 180);
-            this.dispHum.Name = "dispHum";
-            this.dispHum.Size = new System.Drawing.Size(18, 17);
-            this.dispHum.TabIndex = 54;
-            this.dispHum.UseVisualStyleBackColor = true;
-            // 
-            // dispPres
-            // 
-            this.dispPres.AutoSize = true;
-            this.dispPres.Location = new System.Drawing.Point(523, 241);
-            this.dispPres.Name = "dispPres";
-            this.dispPres.Size = new System.Drawing.Size(18, 17);
-            this.dispPres.TabIndex = 55;
-            this.dispPres.UseVisualStyleBackColor = true;
-            // 
-            // dispUV
-            // 
-            this.dispUV.AutoSize = true;
-            this.dispUV.Location = new System.Drawing.Point(523, 302);
-            this.dispUV.Name = "dispUV";
-            this.dispUV.Size = new System.Drawing.Size(18, 17);
-            this.dispUV.TabIndex = 56;
-            this.dispUV.UseVisualStyleBackColor = true;
-            // 
-            // dispMagF
-            // 
-            this.dispMagF.AutoSize = true;
-            this.dispMagF.Location = new System.Drawing.Point(523, 361);
-            this.dispMagF.Name = "dispMagF";
-            this.dispMagF.Size = new System.Drawing.Size(18, 17);
-            this.dispMagF.TabIndex = 57;
-            this.dispMagF.UseVisualStyleBackColor = true;
-            // 
-            // dispDBA
-            // 
-            this.dispDBA.AutoSize = true;
-            this.dispDBA.Location = new System.Drawing.Point(523, 423);
-            this.dispDBA.Name = "dispDBA";
-            this.dispDBA.Size = new System.Drawing.Size(18, 17);
-            this.dispDBA.TabIndex = 58;
-            this.dispDBA.UseVisualStyleBackColor = true;
-            // 
-            // dispLux
-            // 
-            this.dispLux.AutoSize = true;
-            this.dispLux.Location = new System.Drawing.Point(523, 485);
-            this.dispLux.Name = "dispLux";
-            this.dispLux.Size = new System.Drawing.Size(18, 17);
-            this.dispLux.TabIndex = 59;
-            this.dispLux.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -796,7 +776,6 @@
         private System.Windows.Forms.ToolStripMenuItem openFile;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
@@ -846,7 +825,6 @@
         private System.Windows.Forms.CheckBox dispHum;
         private System.Windows.Forms.CheckBox dispForce;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         
     }
 }
