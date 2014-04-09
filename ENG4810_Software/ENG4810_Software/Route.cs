@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GMap.NET;
 
 namespace ENG4810_Software
 {
@@ -41,6 +42,16 @@ namespace ENG4810_Software
         {
             
             return samples[index];
+        }
+
+        public List<PointLatLng> getPoints()
+        {
+            List<PointLatLng> points = new List<PointLatLng>();
+            for (int i = 0; i < (samples.Count - 1); i++)
+            {
+                points.Add(new PointLatLng(samples[i].latitude, samples[i].longitude));
+            }
+            return points;
         }
     }
 }

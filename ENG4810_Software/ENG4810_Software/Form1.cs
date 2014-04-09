@@ -154,11 +154,12 @@ namespace ENG4810_Software
             points.Add(new PointLatLng(-27.483375,152.995863));
             points.Add(new PointLatLng(-27.491903,152.994146));
             points.Add(new PointLatLng(-27.494111, 153.006077));
-
-            create_Route(points, trips);
+            Route route1 = new Route();
+            route1 = create_randDS(points);
+            create_Route( route1.getPoints(), trips);
             
             gmap.ZoomAndCenterRoute(trips.Routes.ElementAt(0));
-            place_Marker(markerOverlay, points.ElementAt(0));
+            create_Marker(markerOverlay, points.ElementAt(0));
             
         }
 
@@ -188,7 +189,7 @@ namespace ENG4810_Software
         {
             if (gmap.Zoom < 18)
             {
-                gmap.Zoom += 0.5;
+                gmap.Zoom += 1;
             }
         }
 
@@ -196,7 +197,7 @@ namespace ENG4810_Software
         {
             if (gmap.Zoom > 1)
             {
-                gmap.Zoom -= 0.5;
+                gmap.Zoom -= 1;
             }
         }
 
@@ -256,13 +257,14 @@ namespace ENG4810_Software
         /*
          * Place Green Marker on a given overlay at a given Latitude and Longitude
          */
-        private void place_Marker(GMapOverlay overlay, PointLatLng latlng)
+        private void create_Marker(GMapOverlay overlay, PointLatLng latlng)
         {
             GMapMarkerGoogleGreen marker = new GMapMarkerGoogleGreen(latlng);
             overlay.Markers.Add(marker);
         }
+
         /*
-         * Creats a route from the given coordinates on the given Overlay. 
+         * Creates a route from the given coordinates on the given Overlay. 
          */
         private void create_Route(List<PointLatLng> poi, GMapOverlay overlay)
         {
@@ -270,6 +272,34 @@ namespace ENG4810_Software
             //route.Stroke.Width = 5;
             //route.Stroke.Color = Color.Red;
             overlay.Routes.Add(route);
+        }
+        private Route create_randDS(List<PointLatLng> poi)
+        {
+            Route r = new Route();
+            Random rand = new Random();
+            for (int i = 0; i < (poi.Count - 1); i++)
+            {
+                DataSample ds = new DataSample();
+                ds.acceleration.Add(-10 + rand.NextDouble() * 20);
+                ds.acceleration.Add(-10 + rand.NextDouble() * 20);
+                ds.acceleration.Add(-10 + rand.NextDouble() * 20);
+                ds.magnetic_Field.Add(rand.Next(-1000, 1000));
+                ds.magnetic_Field.Add(rand.Next(-1000, 1000));
+                ds.magnetic_Field.Add(rand.Next(-1000, 1000));
+                ds.latitude = poi[i].Lat;
+                ds.longitude = poi[i].Lng;
+                ds.humidity = rand.Next(0, 100);
+                ds.luminosity = rand.Next(0, 100000);
+                ds.pressure = rand.Next(3, 110);
+                ds.sound = rand.Next(0, 200);
+                ds.temperature = (rand.NextDouble() * 125 - 40);
+                ds.time = "time goes here";
+                ds.uv = rand.Next(0, 11);
+
+                r.add_Sample(ds);
+            }
+            return r;
+
         }
      
         
