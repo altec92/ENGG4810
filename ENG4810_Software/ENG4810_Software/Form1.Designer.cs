@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Select_All = new System.Windows.Forms.CheckBox();
+            this.map_update = new System.Windows.Forms.Button();
             this.dispLux = new System.Windows.Forms.CheckBox();
             this.dispDBA = new System.Windows.Forms.CheckBox();
             this.dispMagF = new System.Windows.Forms.CheckBox();
@@ -36,7 +38,7 @@
             this.dispPres = new System.Windows.Forms.CheckBox();
             this.dispHum = new System.Windows.Forms.CheckBox();
             this.dispForce = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.dispTemp = new System.Windows.Forms.CheckBox();
             this.lumR_Max = new System.Windows.Forms.TextBox();
             this.lumR_Min = new System.Windows.Forms.TextBox();
             this.dbaR_Max = new System.Windows.Forms.TextBox();
@@ -102,6 +104,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Select_All);
+            this.splitContainer1.Panel1.Controls.Add(this.map_update);
             this.splitContainer1.Panel1.Controls.Add(this.dispLux);
             this.splitContainer1.Panel1.Controls.Add(this.dispDBA);
             this.splitContainer1.Panel1.Controls.Add(this.dispMagF);
@@ -109,7 +113,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.dispPres);
             this.splitContainer1.Panel1.Controls.Add(this.dispHum);
             this.splitContainer1.Panel1.Controls.Add(this.dispForce);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.dispTemp);
             this.splitContainer1.Panel1.Controls.Add(this.lumR_Max);
             this.splitContainer1.Panel1.Controls.Add(this.lumR_Min);
             this.splitContainer1.Panel1.Controls.Add(this.dbaR_Max);
@@ -149,9 +153,31 @@
             this.splitContainer1.Panel2.Controls.Add(this.zoomMin_B);
             this.splitContainer1.Panel2.Controls.Add(this.zoomPlu_B);
             this.splitContainer1.Panel2.Controls.Add(this.gmap);
-            this.splitContainer1.Size = new System.Drawing.Size(1141, 521);
+            this.splitContainer1.Size = new System.Drawing.Size(1141, 564);
             this.splitContainer1.SplitterDistance = 556;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // Select_All
+            // 
+            this.Select_All.AutoSize = true;
+            this.Select_All.Location = new System.Drawing.Point(453, 507);
+            this.Select_All.Name = "Select_All";
+            this.Select_All.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Select_All.Size = new System.Drawing.Size(88, 21);
+            this.Select_All.TabIndex = 60;
+            this.Select_All.Text = "Select All";
+            this.Select_All.UseVisualStyleBackColor = true;
+            this.Select_All.CheckedChanged += new System.EventHandler(this.Select_All_CheckedChanged);
+            // 
+            // map_update
+            // 
+            this.map_update.Location = new System.Drawing.Point(383, 534);
+            this.map_update.Name = "map_update";
+            this.map_update.Size = new System.Drawing.Size(134, 23);
+            this.map_update.TabIndex = 1;
+            this.map_update.Text = "Update";
+            this.map_update.UseVisualStyleBackColor = true;
+            this.map_update.Click += new System.EventHandler(this.Update_Click);
             // 
             // dispLux
             // 
@@ -216,14 +242,14 @@
             this.dispForce.TabIndex = 53;
             this.dispForce.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // dispTemp
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(523, 54);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(18, 17);
-            this.checkBox2.TabIndex = 52;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.dispTemp.AutoSize = true;
+            this.dispTemp.Location = new System.Drawing.Point(523, 54);
+            this.dispTemp.Name = "dispTemp";
+            this.dispTemp.Size = new System.Drawing.Size(18, 17);
+            this.dispTemp.TabIndex = 52;
+            this.dispTemp.UseVisualStyleBackColor = true;
             // 
             // lumR_Max
             // 
@@ -647,7 +673,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
@@ -665,30 +691,30 @@
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(133, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // zoomMin_B
@@ -737,7 +763,7 @@
             this.gmap.RetryLoadTile = 0;
             this.gmap.RoutesEnabled = true;
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(581, 521);
+            this.gmap.Size = new System.Drawing.Size(581, 564);
             this.gmap.TabIndex = 1;
             this.gmap.Zoom = 5D;
             // 
@@ -746,7 +772,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1141, 521);
+            this.ClientSize = new System.Drawing.Size(1141, 564);
             this.Controls.Add(this.splitContainer1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -824,7 +850,9 @@
         private System.Windows.Forms.CheckBox dispPres;
         private System.Windows.Forms.CheckBox dispHum;
         private System.Windows.Forms.CheckBox dispForce;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox dispTemp;
+        private System.Windows.Forms.Button map_update;
+        private System.Windows.Forms.CheckBox Select_All;
         
     }
 }

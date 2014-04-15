@@ -10,7 +10,7 @@ namespace ENG4810_Software
     /*
      * A List of DataSamples required to build a route 
      */
-    class Route
+    public class Route
     {
         private List<DataSample> samples;   //List to hold all the data samples for the Route. 
         /*
@@ -52,6 +52,13 @@ namespace ENG4810_Software
                 points.Add(new PointLatLng(samples[i].latitude, samples[i].longitude));
             }
             return points;
+        }
+
+        public int get_Size()
+        {
+            int i = 0;
+            i = samples.Count();
+            return i;
         }
     }
 }
