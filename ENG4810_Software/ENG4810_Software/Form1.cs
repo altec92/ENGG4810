@@ -161,9 +161,8 @@ namespace ENG4810_Software
             Routes.Add(route1);
             create_Route(Routes[0].getPoints(), RouteOverlay);
 
-            //create_Marker(markerOverlay, route1.get_Sample(0));
+            
             gmap.ZoomAndCenterRoute(RouteOverlay.Routes.ElementAt(0));
-            //create_Marker(markerOverlay, points.ElementAt(0));
 
         }
 
@@ -183,7 +182,7 @@ namespace ENG4810_Software
             //DialogResult userClickedOK = fileDialog.ShowDialog();
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-
+                
                 // insert file handing stuff here 
             }
 
@@ -285,7 +284,7 @@ namespace ENG4810_Software
             Route r = new Route();
             Random rand = new Random();
 
-            for (int i = 0; i < (poi.Count - 1); i++)
+            for (int i = 0; i < poi.Count; i++)
             {
                 DataSample ds = new DataSample();
                 ds.acceleration.Add(Math.Round((-98 + rand.NextDouble() * 196), 3, MidpointRounding.AwayFromZero));
@@ -301,7 +300,7 @@ namespace ENG4810_Software
                 ds.pressure = rand.Next(3, 110);
                 ds.sound = rand.Next(0, 200);
                 ds.temperature = (Math.Round((rand.NextDouble() * 125 - 40), 3, MidpointRounding.AwayFromZero));
-                ds.time = "time goes here";
+                ds.time = new DateTime(2014, 4, 8, 12, 15 + i, 0).ToString();
                 ds.uv = rand.Next(0, 20);
 
                 r.add_Sample(ds);
@@ -314,6 +313,7 @@ namespace ENG4810_Software
         {
             //remove current markers
             int numMarkers = markerOverlay.Markers.Count() - 1;
+            List<DataSample> out_of_threshold = new List<DataSample>();
             for (int k = 0; k <= numMarkers; k++)
             {
                 markerOverlay.Markers.RemoveAt(0);
@@ -325,93 +325,131 @@ namespace ENG4810_Software
                     DataSample ds = Routes[i].get_Sample(j);
                     // check the magnitude of each variable in the ds against
                     //the equicalent range bar value.
-                    if (dispForce.Checked)
+                    
+                    if (dispForce.Checked & !out_of_threshold.Contains(ds))
                     {
                         if ((Convert.ToDecimal(ds.acceleration[0]) <= Convert.ToDecimal(gForceRange.RangeMaximum * 9.8)) &&
-                              (Convert.ToDecimal(ds.acceleration[0]) >= Convert.ToDecimal(gForceRange.RangeMinimum * 9.8)))
+                                (Convert.ToDecimal(ds.acceleration[0]) >= Convert.ToDecimal(gForceRange.RangeMinimum * 9.8)))
                         {
-                            create_Marker(markerOverlay, ds);
+                            //continue checks
                         }
                         else if ((Convert.ToDecimal(ds.acceleration[1]) <= Convert.ToDecimal(gForceRange.RangeMaximum * 9.8)) &&
                                 (Convert.ToDecimal(ds.acceleration[1]) >= Convert.ToDecimal(gForceRange.RangeMinimum * 9.8)))
                         {
-                            create_Marker(markerOverlay, ds);
+                            //continue checks
                         }
                         else if ((Convert.ToDecimal(ds.acceleration[2]) <= Convert.ToDecimal(gForceRange.RangeMaximum * 9.8)) &&
                                 (Convert.ToDecimal(ds.acceleration[2]) >= Convert.ToDecimal(gForceRange.RangeMinimum * 9.8)))
                         {
-                            create_Marker(markerOverlay, ds);
+                            //continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispTemp.Checked)
+                    if (dispTemp.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.temperature) <= Convert.ToDecimal(tempRange.RangeMaximum) &&
-                           Convert.ToDecimal(ds.temperature) >= Convert.ToDecimal(tempRange.RangeMinimum))
+                            Convert.ToDecimal(ds.temperature) >= Convert.ToDecimal(tempRange.RangeMinimum))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
 
                     }
-                    if (dispPres.Checked)
+                    if (dispPres.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.pressure) <= Convert.ToDecimal(presRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.pressure) >= Convert.ToDecimal(presRange.RangeMinimum))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
 
                     }
-                    if (dispUV.Checked)
+                    if (dispUV.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.uv) <= Convert.ToDecimal(uvRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.uv) >= Convert.ToDecimal(uvRange.RangeMinimum))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispDBA.Checked)
+                    if (dispDBA.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.sound) <= Convert.ToDecimal(dbRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.sound) >= Convert.ToDecimal(dbRange.RangeMinimum))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispHum.Checked)
+                    if (dispHum.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.humidity) <= Convert.ToDecimal(humRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.humidity) >= Convert.ToDecimal(humRange.RangeMinimum))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispMagF.Checked)
+                    if (dispMagF.Checked & !out_of_threshold.Contains(ds))
                     {
                         if ((Convert.ToDecimal(ds.magnetic_Field[0]) <= Convert.ToDecimal(magRange.RangeMaximum)) &&
-                              (Convert.ToDecimal(ds.magnetic_Field[0]) >= Convert.ToDecimal(magRange.RangeMinimum)))
+                                (Convert.ToDecimal(ds.magnetic_Field[0]) >= Convert.ToDecimal(magRange.RangeMinimum)))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
                         }
                         else if ((Convert.ToDecimal(ds.magnetic_Field[1]) <= Convert.ToDecimal(magRange.RangeMaximum)) &&
                                 (Convert.ToDecimal(ds.magnetic_Field[1]) >= Convert.ToDecimal(magRange.RangeMinimum)))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
                         }
                         else if ((Convert.ToDecimal(ds.magnetic_Field[2]) <= Convert.ToDecimal(magRange.RangeMaximum)) &&
                                 (Convert.ToDecimal(ds.magnetic_Field[2]) >= Convert.ToDecimal(magRange.RangeMinimum)))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
 
                     }
-                    if (dispLux.Checked)
+                    if (dispLux.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.luminosity) <= Convert.ToDecimal(lumRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.luminosity) >= Convert.ToDecimal(lumRange.RangeMinimum))
                         {
-                            create_Marker(markerOverlay, ds);
+                            // continue checks
+                        }
+                        else
+                        {
+                            out_of_threshold.Add(ds);
                         }
                     }
+                    if (!out_of_threshold.Contains(ds))
+                    {
+                        create_Marker(markerOverlay, ds);
+                    }
+                    
                 }
 
             }

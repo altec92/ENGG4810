@@ -744,11 +744,13 @@
             // 
             // gmap
             // 
+            this.gmap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gmap.AutoSize = true;
             this.gmap.Bearing = 0F;
             this.gmap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gmap.CanDragMap = true;
-            this.gmap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gmap.GrayScaleMode = false;
             this.gmap.LevelsKeepInMemmory = 5;
             this.gmap.Location = new System.Drawing.Point(0, 0);
