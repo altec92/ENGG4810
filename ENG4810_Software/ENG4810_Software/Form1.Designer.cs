@@ -760,14 +760,14 @@
             this.gmap.MinZoom = 0;
             this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gmap.Name = "gmap";
-            this.gmap.NegativeMode = false;
+            this.gmap.NegativeMode = true;
             this.gmap.PolygonsEnabled = true;
             this.gmap.RetryLoadTile = 0;
             this.gmap.RoutesEnabled = true;
             this.gmap.ShowTileGridLines = false;
             this.gmap.Size = new System.Drawing.Size(581, 564);
             this.gmap.TabIndex = 1;
-            this.gmap.Zoom = 5D;
+            this.gmap.Zoom = 10D;
             // 
             // MainWindow
             // 

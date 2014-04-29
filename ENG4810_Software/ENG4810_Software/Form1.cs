@@ -33,6 +33,7 @@ namespace ENG4810_Software
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Position = new GMap.NET.PointLatLng(-25.971684, 32.589759);
+            
 
             //better performance for lots of objects. 
             gmap.ForceDoubleBuffer = true;
@@ -117,49 +118,49 @@ namespace ENG4810_Software
             points.Add(new PointLatLng(-27.823516, 153.29464));
             points.Add(new PointLatLng(-27.819265, 153.285971));
             points.Add(new PointLatLng(-27.81471, 153.276873));
-            //points.Add(new PointLatLng(-27.808941,153.268375));
-            //points.Add(new PointLatLng(-27.800817,153.262367));
-            //points.Add(new PointLatLng(-27.790719,153.259192));
-            //points.Add(new PointLatLng(-27.780999,153.253269));
-            //points.Add(new PointLatLng(-27.77014,153.251295));
-            //points.Add(new PointLatLng(-27.761254,153.246059));
-            //points.Add(new PointLatLng(-27.753659,153.237734));
-            //points.Add(new PointLatLng(-27.744315,153.233271));
-            //points.Add(new PointLatLng(-27.73406,153.227262));
-            //points.Add(new PointLatLng(-27.725171,153.220053));
-            //points.Add(new PointLatLng(-27.716585,153.210354));
-            //points.Add(new PointLatLng(-27.708303,153.205376));
-            //points.Add(new PointLatLng(-27.699868,153.196964));
-            //points.Add(new PointLatLng(-27.690976,153.192329));
-            //points.Add(new PointLatLng(-27.681628,153.187609));
-            //points.Add(new PointLatLng(-27.672279,153.180914));
-            //points.Add(new PointLatLng(-27.662777,153.171215));
-            //points.Add(new PointLatLng(-27.651829,153.1604));
-            //points.Add(new PointLatLng(-27.643846,153.145638));
-            //points.Add(new PointLatLng(-27.633125,153.132849));
-            //points.Add(new PointLatLng(-27.621414,153.127184));
-            //points.Add(new PointLatLng(-27.609626,153.121347));
-            //points.Add(new PointLatLng(-27.598825,153.114395));
-            //points.Add(new PointLatLng(-27.587948,153.107615));
-            //points.Add(new PointLatLng(-27.577145,153.100748));
-            //points.Add(new PointLatLng(-27.567787,153.085728));
-            //points.Add(new PointLatLng(-27.557971,153.073711));
-            //points.Add(new PointLatLng(-27.54747,153.064442));
-            //points.Add(new PointLatLng(-27.535978,153.058605));
-            //points.Add(new PointLatLng(-27.522202,153.053713));
-            //points.Add(new PointLatLng(-27.511697,153.040066));
-            //points.Add(new PointLatLng(-27.499516,153.039808));
-            //points.Add(new PointLatLng(-27.486725,153.032169));
-            //points.Add(new PointLatLng(-27.473095,153.023672));
-            //points.Add(new PointLatLng(-27.467384,153.015261));
-            //points.Add(new PointLatLng(-27.472791,153.005562));
-            //points.Add(new PointLatLng(-27.483375,152.995863));
-            //points.Add(new PointLatLng(-27.491903,152.994146));
-            //points.Add(new PointLatLng(-27.494111, 153.006077));
+            points.Add(new PointLatLng(-27.808941,153.268375));
+            points.Add(new PointLatLng(-27.800817,153.262367));
+            points.Add(new PointLatLng(-27.790719,153.259192));
+            points.Add(new PointLatLng(-27.780999,153.253269));
+            points.Add(new PointLatLng(-27.77014,153.251295));
+            points.Add(new PointLatLng(-27.761254,153.246059));
+            points.Add(new PointLatLng(-27.753659,153.237734));
+            points.Add(new PointLatLng(-27.744315,153.233271));
+            points.Add(new PointLatLng(-27.73406,153.227262));
+            points.Add(new PointLatLng(-27.725171,153.220053));
+            points.Add(new PointLatLng(-27.716585,153.210354));
+            points.Add(new PointLatLng(-27.708303,153.205376));
+            points.Add(new PointLatLng(-27.699868,153.196964));
+            points.Add(new PointLatLng(-27.690976,153.192329));
+            points.Add(new PointLatLng(-27.681628,153.187609));
+            points.Add(new PointLatLng(-27.672279,153.180914));
+            points.Add(new PointLatLng(-27.662777,153.171215));
+            points.Add(new PointLatLng(-27.651829,153.1604));
+            points.Add(new PointLatLng(-27.643846,153.145638));
+            points.Add(new PointLatLng(-27.633125,153.132849));
+            points.Add(new PointLatLng(-27.621414,153.127184));
+            points.Add(new PointLatLng(-27.609626,153.121347));
+            points.Add(new PointLatLng(-27.598825,153.114395));
+            points.Add(new PointLatLng(-27.587948,153.107615));
+            points.Add(new PointLatLng(-27.577145,153.100748));
+            points.Add(new PointLatLng(-27.567787,153.085728));
+            points.Add(new PointLatLng(-27.557971,153.073711));
+            points.Add(new PointLatLng(-27.54747,153.064442));
+            points.Add(new PointLatLng(-27.535978,153.058605));
+            points.Add(new PointLatLng(-27.522202,153.053713));
+            points.Add(new PointLatLng(-27.511697,153.040066));
+            points.Add(new PointLatLng(-27.499516,153.039808));
+            points.Add(new PointLatLng(-27.486725,153.032169));
+            points.Add(new PointLatLng(-27.473095,153.023672));
+            points.Add(new PointLatLng(-27.467384,153.015261));
+            points.Add(new PointLatLng(-27.472791,153.005562));
+            points.Add(new PointLatLng(-27.483375,152.995863));
+            points.Add(new PointLatLng(-27.491903,152.994146));
+            points.Add(new PointLatLng(-27.494111, 153.006077));
             Route route1 = new Route();
             route1 = create_randDS(points);
             Routes.Add(route1);
-            create_Route(Routes[0].getPoints(), RouteOverlay);
+            create_Route(Routes[0], RouteOverlay);
 
             
             gmap.ZoomAndCenterRoute(RouteOverlay.Routes.ElementAt(0));
@@ -272,13 +273,144 @@ namespace ENG4810_Software
         /*
          * Creates a route from the given coordinates on the given Overlay. 
          */
-        private void create_Route(List<PointLatLng> poi, GMapOverlay overlay)
+        private void create_Route(Route r, GMapOverlay overlay)
         {
-            GMapRoute route = new GMapRoute(poi, "route");
-            //route.Stroke.Width = 5;
-            //route.Stroke.Color = Color.Red;
-            overlay.Routes.Add(route);
+            for (int i = 0; i < r.get_Size() - 1; i++)
+            {
+                List<PointLatLng> twoPoints = new List<PointLatLng>();
+                DataSample ds1 = r.get_Sample(i);
+                DataSample ds2 = r.get_Sample(i + 1);
+                double tempAvg = (ds1.temperature + ds2.temperature) / 2;
+                twoPoints.Add(new PointLatLng(ds1.latitude, ds1.longitude));
+                twoPoints.Add(new PointLatLng(ds2.latitude, ds2.longitude));
+                GMapRoute route = new GMapRoute(twoPoints, "route " + i.ToString());
+                if (tempAvg <= -35)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0 , 53, 204);
+                }
+                else if (tempAvg <= -30)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 85, 205);
+                }
+                else if (tempAvg <= -25)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 119, 207);
+                }
+                else if (tempAvg <= -20)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 153, 209);
+                }
+                else if (tempAvg <= -15)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 188, 210);
+                }
+                else if (tempAvg <= -10)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 212, 201);
+                }
+                else if (tempAvg <= -5)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 214, 169);
+                }
+                else if (tempAvg <= 0)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 215, 136);
+                }
+                else if (tempAvg <= 5)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 217, 103);
+                }
+                else if (tempAvg <= 10)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 219, 69);
+                }
+                else if (tempAvg <= 15)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(0, 221, 34);
+                }
+                else if (tempAvg <= 20)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(35, 224, 0);
+                }
+                else if (tempAvg <= 25)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(71, 226, 0);
+                }
+                else if (tempAvg <= 30)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(108, 227, 0);
+                }
+                else if (tempAvg <= 35)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(145, 229, 0);
+                }
+                else if (tempAvg <= 40)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(183, 231, 0);
+                }
+                else if (tempAvg <= 45)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(221, 233, 0);
+                }
+                else if (tempAvg <= 50)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(234, 209, 0);
+                }
+                else if (tempAvg <= 55)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(236, 173, 0);
+                }
+                else if (tempAvg <= 60)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(238, 137, 0);
+                }
+                else if (tempAvg <= 65)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(239, 100, 0);
+                }
+                else if (tempAvg <= 70)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(241, 62, 0);
+                }
+                else if (tempAvg <= 75)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(243, 24, 0);
+                }
+                else if (tempAvg <= 80)
+                {
+                    route.Stroke.Width = 5;
+                    route.Stroke.Color = Color.FromArgb(245, 0, 14);
+                }
+                
+                overlay.Routes.Add(route);
+            }
         }
+
+
+
         private Route create_randDS(List<PointLatLng> poi)
         {
             Route r = new Route();
@@ -300,7 +432,7 @@ namespace ENG4810_Software
                 ds.pressure = rand.Next(3, 110);
                 ds.sound = rand.Next(0, 200);
                 ds.temperature = (Math.Round((rand.NextDouble() * 125 - 40), 3, MidpointRounding.AwayFromZero));
-                ds.time = new DateTime(2014, 4, 8, 12, 15 + i, 0).ToString();
+                ds.time = new DateTime(2014, 4, 8, 12, 15, 0).ToString();
                 ds.uv = rand.Next(0, 20);
 
                 r.add_Sample(ds);
@@ -445,7 +577,7 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
-                    if (!out_of_threshold.Contains(ds))
+                    if (!out_of_threshold.Contains(ds)  && out_of_threshold.Count > 0)
                     {
                         create_Marker(markerOverlay, ds);
                     }
