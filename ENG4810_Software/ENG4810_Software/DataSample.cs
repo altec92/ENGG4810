@@ -26,13 +26,13 @@ namespace ENG4810_Software
         {
             //possibly need to add a unique id to avoid duplicates in a list. 
             this.time = "";
-            this.latitude = 0;
-            this.longitude = 0;
-            this.uv = 0;
-            this.pressure = 0;
-            this.sound = 0;
-            this.luminosity = 0;
-            this.humidity = 0;
+            this.latitude = Double.MaxValue;
+            this.longitude = Double.MaxValue;
+            this.uv = -1;
+            this.pressure = -1;
+            this.sound = -1;
+            this.luminosity = -1;
+            this.humidity = -1;
             this.acceleration = new List<double>();
             this.magnetic_Field = new List<int>();
             this.temperature = 0;

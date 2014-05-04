@@ -27,7 +27,7 @@ namespace ENG4810_Software
         {
             //Everything that needs to happen at startup. 
             InitializeComponent();
-
+            
 
             //init Map 
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
@@ -91,9 +91,11 @@ namespace ENG4810_Software
             markerOverlay = new GMapOverlay(gmap, "Markers");
             gmap.Overlays.Add(markerOverlay);
 
+            //testing points
             List<PointLatLng> points = new List<PointLatLng>();
 
-            //testing points
+            List<PointLatLng> points2 = new List<PointLatLng>();
+            
             points.Add(new PointLatLng(-28.006224, 153.428192));
             points.Add(new PointLatLng(-28.003117, 153.426647));
             points.Add(new PointLatLng(-27.996751, 153.427677));
@@ -124,47 +126,54 @@ namespace ENG4810_Software
             points.Add(new PointLatLng(-27.780999,153.253269));
             points.Add(new PointLatLng(-27.77014,153.251295));
             points.Add(new PointLatLng(-27.761254,153.246059));
-            points.Add(new PointLatLng(-27.753659,153.237734));
-            points.Add(new PointLatLng(-27.744315,153.233271));
-            points.Add(new PointLatLng(-27.73406,153.227262));
-            points.Add(new PointLatLng(-27.725171,153.220053));
-            points.Add(new PointLatLng(-27.716585,153.210354));
-            points.Add(new PointLatLng(-27.708303,153.205376));
-            points.Add(new PointLatLng(-27.699868,153.196964));
-            points.Add(new PointLatLng(-27.690976,153.192329));
-            points.Add(new PointLatLng(-27.681628,153.187609));
-            points.Add(new PointLatLng(-27.672279,153.180914));
-            points.Add(new PointLatLng(-27.662777,153.171215));
-            points.Add(new PointLatLng(-27.651829,153.1604));
-            points.Add(new PointLatLng(-27.643846,153.145638));
-            points.Add(new PointLatLng(-27.633125,153.132849));
-            points.Add(new PointLatLng(-27.621414,153.127184));
-            points.Add(new PointLatLng(-27.609626,153.121347));
-            points.Add(new PointLatLng(-27.598825,153.114395));
-            points.Add(new PointLatLng(-27.587948,153.107615));
-            points.Add(new PointLatLng(-27.577145,153.100748));
-            points.Add(new PointLatLng(-27.567787,153.085728));
-            points.Add(new PointLatLng(-27.557971,153.073711));
-            points.Add(new PointLatLng(-27.54747,153.064442));
-            points.Add(new PointLatLng(-27.535978,153.058605));
-            points.Add(new PointLatLng(-27.522202,153.053713));
-            points.Add(new PointLatLng(-27.511697,153.040066));
-            points.Add(new PointLatLng(-27.499516,153.039808));
-            points.Add(new PointLatLng(-27.486725,153.032169));
-            points.Add(new PointLatLng(-27.473095,153.023672));
-            points.Add(new PointLatLng(-27.467384,153.015261));
-            points.Add(new PointLatLng(-27.472791,153.005562));
-            points.Add(new PointLatLng(-27.483375,152.995863));
-            points.Add(new PointLatLng(-27.491903,152.994146));
-            points.Add(new PointLatLng(-27.494111, 153.006077));
-            Route route1 = new Route();
-            route1 = create_randDS(points);
-            Routes.Add(route1);
-            create_Route(Routes[0], RouteOverlay);
+            //points.Add(new PointLatLng(-27.753659,153.237734));
 
-            
+            points2.Add(new PointLatLng(-27.744315,153.233271));
+            points2.Add(new PointLatLng(-27.73406,153.227262));
+            points2.Add(new PointLatLng(-27.725171,153.220053));
+            points2.Add(new PointLatLng(-27.716585,153.210354));
+            points2.Add(new PointLatLng(-27.708303,153.205376));
+            points2.Add(new PointLatLng(-27.699868,153.196964));
+            points2.Add(new PointLatLng(-27.690976,153.192329));
+            points2.Add(new PointLatLng(-27.681628,153.187609));
+            points2.Add(new PointLatLng(-27.672279,153.180914));
+            points2.Add(new PointLatLng(-27.662777,153.171215));
+            points2.Add(new PointLatLng(-27.651829,153.1604));
+            points2.Add(new PointLatLng(-27.643846,153.145638));
+            points2.Add(new PointLatLng(-27.633125,153.132849));
+            points2.Add(new PointLatLng(-27.621414,153.127184));
+            points2.Add(new PointLatLng(-27.609626,153.121347));
+            points2.Add(new PointLatLng(-27.598825,153.114395));
+            points2.Add(new PointLatLng(-27.587948,153.107615));
+            points2.Add(new PointLatLng(-27.577145,153.100748));
+            points2.Add(new PointLatLng(-27.567787,153.085728));
+            points2.Add(new PointLatLng(-27.557971,153.073711));
+            points2.Add(new PointLatLng(-27.54747,153.064442));
+            points2.Add(new PointLatLng(-27.535978,153.058605));
+            points2.Add(new PointLatLng(-27.522202,153.053713));
+            points2.Add(new PointLatLng(-27.511697,153.040066));
+            points2.Add(new PointLatLng(-27.499516,153.039808));
+            points2.Add(new PointLatLng(-27.486725,153.032169));
+            points2.Add(new PointLatLng(-27.473095,153.023672));
+            points2.Add(new PointLatLng(-27.467384,153.015261));
+            points2.Add(new PointLatLng(-27.472791,153.005562));
+            points2.Add(new PointLatLng(-27.483375,152.995863));
+            points2.Add(new PointLatLng(-27.491903,152.994146));
+            points2.Add(new PointLatLng(-27.494111, 153.006077));
+            Route route1 = new Route();
+            Route route2 = new Route();
+            route1 = create_randDS(points);
+            route2 = create_randDS(points2);
+            Routes.Add(route1);
+            create_Route_Label("Log_1");
+            Routes.Add(route2);
+            create_Route_Label("Log_2");
+            create_Route(Routes[0], RouteOverlay);
+            create_Route(Routes[1], RouteOverlay);
+
             gmap.ZoomAndCenterRoute(RouteOverlay.Routes.ElementAt(0));
 
+            
         }
 
 
@@ -444,8 +453,23 @@ namespace ENG4810_Software
             return r;
 
         }
-        
-        
+
+        private void create_Route_Label(string name)
+        {
+
+
+            this.splitContainer1.Panel1.Controls.Add(new Label
+            {
+                Location = new Point(444, 44 + (Routes.Count - 1) * 26),
+                Name = "ThreshCheckR" + Routes.Count.ToString(),
+                Text = name,
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.Transparent,
+                AutoSize = true,
+                Size = new Size(35, 13)
+            });
+
+        }
         /*
          * Updates the Map depending on the Thresholds Selected
          */
@@ -460,6 +484,7 @@ namespace ENG4810_Software
             }
             for (int i = 0; i <= Routes.Count() - 1; i++)
             {
+                //Threshold checks
                 for (int j = 0; j <= Routes[i].get_Size() - 1; j++)
                 {
                     DataSample ds = Routes[i].get_Sample(j);
@@ -593,14 +618,25 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
-                    //Creat Marker if with in threshold
-                    if (!out_of_threshold.Contains(ds)  && out_of_threshold.Count > 0)
+                    //Create Marker if out of threshold 
+                    if (out_of_threshold.Contains(ds) && out_of_threshold.Count > 0)
                     {
                         create_Marker(markerOverlay, ds);
+                       
                     }
                     
                 }
-
+                 //update Route Label colour
+                if (out_of_threshold.Count > 0) 
+                {
+                    Controls.Find("ThreshCheckR" + (i + 1).ToString(), true).ElementAt(0).BackColor = Color.Red;
+                    this.splitContainer1.Update();
+                }
+                else
+                {
+                    Controls.Find("ThreshCheckR" + (i + 1).ToString(), true).ElementAt(0).BackColor = Color.Green;
+                    this.splitContainer1.Update();
+                }
             }
         }
 
