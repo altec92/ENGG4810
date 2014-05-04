@@ -189,6 +189,8 @@ namespace ENG4810_Software
 
         }
 
+
+
         private void zoomPlu_B_Click(object sender, EventArgs e)
         {
             if (gmap.Zoom < 18)
@@ -271,7 +273,7 @@ namespace ENG4810_Software
         }
 
         /*
-         * Creates a route from the given coordinates on the given Overlay. 
+         * Creates a route from the given Route on the given Overlay. 
          */
         private void create_Route(Route r, GMapOverlay overlay)
         {
@@ -410,7 +412,9 @@ namespace ENG4810_Software
         }
 
 
-
+        /*
+         * TESTING PURPOSES: CREATES RANDOM DATA SAMPLES AND ADDS THEM TO A ROUTE
+         */
         private Route create_randDS(List<PointLatLng> poi)
         {
             Route r = new Route();
@@ -440,7 +444,11 @@ namespace ENG4810_Software
             return r;
 
         }
-
+        
+        
+        /*
+         * Updates the Map depending on the Thresholds Selected
+         */
         private void Update_Click(object sender, EventArgs e)
         {
             //remove current markers
@@ -458,7 +466,8 @@ namespace ENG4810_Software
                     // check the magnitude of each variable in the ds against
                     //the equicalent range bar value.
                     
-                    if (dispForce.Checked & !out_of_threshold.Contains(ds))
+                    //acceleration
+                    if (dispForce.Checked & !out_of_threshold.Contains(ds) & (ds.acceleration.Count != 0))
                     {
                         if ((Convert.ToDecimal(ds.acceleration[0]) <= Convert.ToDecimal(gForceRange.RangeMaximum * 9.8)) &&
                                 (Convert.ToDecimal(ds.acceleration[0]) >= Convert.ToDecimal(gForceRange.RangeMinimum * 9.8)))
@@ -480,6 +489,7 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
+                    //Temperature
                     if (dispTemp.Checked & !out_of_threshold.Contains(ds))
                     {
                         if (Convert.ToDecimal(ds.temperature) <= Convert.ToDecimal(tempRange.RangeMaximum) &&
@@ -493,7 +503,8 @@ namespace ENG4810_Software
                         }
 
                     }
-                    if (dispPres.Checked & !out_of_threshold.Contains(ds))
+                    //Pressure
+                    if (dispPres.Checked & !out_of_threshold.Contains(ds) & (ds.pressure != -1))
                     {
                         if (Convert.ToDecimal(ds.pressure) <= Convert.ToDecimal(presRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.pressure) >= Convert.ToDecimal(presRange.RangeMinimum))
@@ -506,7 +517,8 @@ namespace ENG4810_Software
                         }
 
                     }
-                    if (dispUV.Checked & !out_of_threshold.Contains(ds))
+                    //UV Light
+                    if (dispUV.Checked & !out_of_threshold.Contains(ds) & (ds.uv != -1))
                     {
                         if (Convert.ToDecimal(ds.uv) <= Convert.ToDecimal(uvRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.uv) >= Convert.ToDecimal(uvRange.RangeMinimum))
@@ -518,7 +530,8 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispDBA.Checked & !out_of_threshold.Contains(ds))
+                    //Sound Level
+                    if (dispDBA.Checked & !out_of_threshold.Contains(ds) & (ds.sound != -1))
                     {
                         if (Convert.ToDecimal(ds.sound) <= Convert.ToDecimal(dbRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.sound) >= Convert.ToDecimal(dbRange.RangeMinimum))
@@ -530,7 +543,8 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispHum.Checked & !out_of_threshold.Contains(ds))
+                    //Humidity
+                    if (dispHum.Checked & !out_of_threshold.Contains(ds) & (ds.humidity != -1))
                     {
                         if (Convert.ToDecimal(ds.humidity) <= Convert.ToDecimal(humRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.humidity) >= Convert.ToDecimal(humRange.RangeMinimum))
@@ -542,7 +556,8 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
-                    if (dispMagF.Checked & !out_of_threshold.Contains(ds))
+                    //Magnetic Field
+                    if (dispMagF.Checked & !out_of_threshold.Contains(ds) & (ds.magnetic_Field.Count != 0))
                     {
                         if ((Convert.ToDecimal(ds.magnetic_Field[0]) <= Convert.ToDecimal(magRange.RangeMaximum)) &&
                                 (Convert.ToDecimal(ds.magnetic_Field[0]) >= Convert.ToDecimal(magRange.RangeMinimum)))
@@ -565,7 +580,8 @@ namespace ENG4810_Software
                         }
 
                     }
-                    if (dispLux.Checked & !out_of_threshold.Contains(ds))
+                    //Luminosity
+                    if (dispLux.Checked & !out_of_threshold.Contains(ds) & (ds.luminosity != -1) )
                     {
                         if (Convert.ToDecimal(ds.luminosity) <= Convert.ToDecimal(lumRange.RangeMaximum) &&
                             Convert.ToDecimal(ds.luminosity) >= Convert.ToDecimal(lumRange.RangeMinimum))
@@ -577,6 +593,7 @@ namespace ENG4810_Software
                             out_of_threshold.Add(ds);
                         }
                     }
+                    //Creat Marker if with in threshold
                     if (!out_of_threshold.Contains(ds)  && out_of_threshold.Count > 0)
                     {
                         create_Marker(markerOverlay, ds);
@@ -587,6 +604,9 @@ namespace ENG4810_Software
             }
         }
 
+        /*
+         * Sets all check boxes to the state of the select all check box when the state changes. 
+         */
         private void Select_All_CheckedChanged(object sender, EventArgs e)
         {
             if (Select_All.Checked)
