@@ -2,14 +2,14 @@
 <java version="1.6.0_13" class="java.beans.XMLDecoder"> 
  <object class="com.ti.dvt.datamodel.solution.SolutionManager$PersistState"> 
   <void property="defaultSolution"> 
-   <string>C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware\dvt\AnalysisSolutionsTemp\AnalysisSolution1399701231684\null</string> 
+   <string>C:\ti\ccsv5\ccs_base\DebugServer\..\dvt_3.5.0.201309051307\CodeGen\solutions\CodeGenCoverage</string> 
   </void> 
   <void property="openedSolutions"> 
    <void method="add"> 
-    <string>C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware\dvt\AnalysisSolutionsTemp\AnalysisSolution1399701231684\null</string> 
+    <string>C:\ti\ccsv5\ccs_base\DebugServer\..\dvt_3.5.0.201309051307\CodeGen\solutions\CodeGenCoverage</string> 
    </void> 
    <void method="add"> 
-    <string>C:\ti\ccsv5\ccs_base\DebugServer\..\dvt_3.5.0.201309051307\CodeGen\solutions\CodeGenCoverage</string> 
+    <string>C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware\dvt\AnalysisSolutionsTemp\AnalysisSolution1399710346017\null</string> 
    </void> 
    <void method="add"> 
     <string>C:\ti\ccsv5\ccs_base\DebugServer\..\dvt_3.5.0.201309051307\RTA6\solutions\cce_rta6</string> 
