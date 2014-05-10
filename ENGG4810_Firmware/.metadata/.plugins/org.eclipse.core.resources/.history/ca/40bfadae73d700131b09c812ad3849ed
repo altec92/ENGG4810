@@ -1,0 +1,108 @@
+/*
+ * main.c
+ */
+
+#define PART_TM4C1230H6PM
+
+#include <stdint.h>
+#include <stdbool.h>
+
+#include "inc/hw_memmap.h"
+#include "inc/hw_types.h"
+
+#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+#include "driverlib/pin_map.h"
+#include "driverlib/uart.h"
+#include "driverlib/interrupt.h"
+#include "driverlib/rom.h"
+#include "utils/uartstdio.h"
+
+#include "third_party/fatfs/src/ff.h"
+#include "third_party/fatfs/src/diskio.h"
+#include "Defs.h"
+
+
+
+
+
+
+int main(void) {
+	
+	SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN |
+            SYSCTL_XTAL_16MHZ);
+	ConfigureUART();
+
+	FRESULT iFResult;
+
+	iFResult = f_mount(0, &g_sFatFs);
+	    if(iFResult != FR_OK)
+	    {
+	        UARTprintf("f_mount error: %s\n", StringFromFResult(iFResult));
+	        return(1);
+	    }
+	    UARTprintf("f_mout Succeeded");
+
+
+	return 0;
+}
+
+
+void
+ConfigureUART(void)
+{
+    //
+    // Enable the GPIO Peripheral used by the UART.
+    //
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+    //SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
+
+    //
+    // Enable UART0
+    //
+    //SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_UART3);
+
+    //
+    // Configure GPIO Pins for UART mode.
+    //
+    GPIOPinConfigure(GPIO_PA0_U0RX);
+    GPIOPinConfigure(GPIO_PA1_U0TX);
+    GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+
+    UARTStdioConfig(0, 38400, SysCtlClockGet());
+
+}
+
+//*****************************************************************************
+//
+// This function returns a string representation of an error code that was
+// returned from a function call to FatFs.  It can be used for printing human
+// readable error messages.
+//
+//*****************************************************************************
+const char *
+StringFromFResult(FRESULT iFResult)
+{
+    uint_fast8_t ui8Idx;
+
+    //
+    // Enter a loop to search the error code table for a matching error code.
+    //
+    for(ui8Idx = 0; ui8Idx < NUM_FRESULT_CODES; ui8Idx++)
+    {
+        //
+        // If a match is found, then return the string name of the error code.
+        //
+        if(g_psFResultStrings[ui8Idx].iFResult == iFResult)
+        {
+            return(g_psFResultStrings[ui8Idx].pcResultStr);
+        }
+    }
+
+    //
+    // At this point no matching code was found, so return a string indicating
+    // an unknown error.
+    //
+    return("UNKNOWN ERROR CODE");
+}

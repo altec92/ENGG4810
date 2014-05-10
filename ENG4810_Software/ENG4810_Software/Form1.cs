@@ -32,8 +32,9 @@ namespace ENG4810_Software
             //init Map 
             gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gmap.Position = new GMap.NET.PointLatLng(-25.971684, 32.589759);
+            //gmap.Position = new GMap.NET.PointLatLng(-25.971684, 32.589759);
             
+      
 
             //better performance for lots of objects. 
             gmap.ForceDoubleBuffer = true;
@@ -95,7 +96,8 @@ namespace ENG4810_Software
             List<PointLatLng> points = new List<PointLatLng>();
 
             List<PointLatLng> points2 = new List<PointLatLng>();
-            
+            //Rouets
+            //Routes1
             points.Add(new PointLatLng(-28.006224, 153.428192));
             points.Add(new PointLatLng(-28.003117, 153.426647));
             points.Add(new PointLatLng(-27.996751, 153.427677));
@@ -127,7 +129,7 @@ namespace ENG4810_Software
             points.Add(new PointLatLng(-27.77014,153.251295));
             points.Add(new PointLatLng(-27.761254,153.246059));
             //points.Add(new PointLatLng(-27.753659,153.237734));
-
+            //Route2
             points2.Add(new PointLatLng(-27.744315,153.233271));
             points2.Add(new PointLatLng(-27.73406,153.227262));
             points2.Add(new PointLatLng(-27.725171,153.220053));
@@ -215,6 +217,8 @@ namespace ENG4810_Software
                 gmap.Zoom -= 1;
             }
         }
+        
+        //Updates corresponding text box with current max and min of corresponding range bar
 
         private void lumRange_RangeChanged(object sender, EventArgs e)
         {
@@ -268,6 +272,8 @@ namespace ENG4810_Software
             tempR_Max.Text = tempRange.RangeMaximum.ToString();
             tempR_Min.Text = tempRange.RangeMinimum.ToString();
         }
+
+        
 
         /*
          * Place Green Marker on a given overlay at a given Latitude and Longitude
@@ -420,7 +426,6 @@ namespace ENG4810_Software
             }
         }
 
-
         /*
          * TESTING PURPOSES: CREATES RANDOM DATA SAMPLES AND ADDS THEM TO A ROUTE
          */
@@ -454,10 +459,11 @@ namespace ENG4810_Software
 
         }
 
+        /*
+         * Creates a Label for each route in the Routes List 
+         */
         private void create_Route_Label(string name)
         {
-
-
             this.splitContainer1.Panel1.Controls.Add(new Label
             {
                 Location = new Point(444, 44 + (Routes.Count - 1) * 26),
@@ -466,22 +472,26 @@ namespace ENG4810_Software
                 BorderStyle = BorderStyle.None,
                 BackColor = Color.Transparent,
                 AutoSize = true,
-                Size = new Size(35, 13)
+                Size = new Size(35, 13) 
             });
-
         }
+
         /*
          * Updates the Map depending on the Thresholds Selected
          */
         private void Update_Click(object sender, EventArgs e)
         {
-            //remove current markers
-            int numMarkers = markerOverlay.Markers.Count() - 1;
-            List<DataSample> out_of_threshold = new List<DataSample>();
-            for (int k = 0; k <= numMarkers; k++)
+            
+
+            List<DataSample> out_of_threshold = new List<DataSample>(); //List for all datasamples that are out of the threshold
+
+            //Remove current MArkers
+            for (int k = 0; k <= markerOverlay.Markers.Count() - 1; k++)
             {
                 markerOverlay.Markers.RemoveAt(0);
             }
+
+            //Check Each Route in Routes List
             for (int i = 0; i <= Routes.Count() - 1; i++)
             {
                 //Threshold checks
@@ -672,17 +682,5 @@ namespace ENG4810_Software
     }
 
 }
-// random code snppets
-//for (int i = 0; i < markerOverlay.Markers.Count; i++)
 
-//{
-//    markerOverlay.Markers.RemoveAt(i);
-//}
-
-
-//Creates markers at all points on routes
-//for (int i = 0; i < Routes[0].get_Size(); i++)
-//            {
-//                create_Marker(markerOverlay, Routes[0].get_Sample(i));
-//            }
 

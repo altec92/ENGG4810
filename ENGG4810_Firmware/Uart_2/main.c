@@ -31,16 +31,22 @@ int main(void) {
 		//
 	    // Enable the GPIO port that is used for the on-board LED.
 	    //
-	   // SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+	    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
 
 	    //
 	    // Enable the GPIO pins for the LED (PF2).
 	    //
-	   // GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
+	    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
 	    ConfigureUART();
 	    GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_2);
-	    GPSConifg();
-	    //UARTSend((uint8_t *)"\033[2JEnter text: ", 16);
+
+
+	  //COnfigure gps fro NMEA GPRMC protocol
+	    GPSConfigMsg(NMEA_GPRMCmsgConfig, 16 );
+	 //CONFIGURE GPS TO OUTPUT IN NMEA FORMAT NOT UBX
+	    GPSConfigMsg(NMEAoutConfig, 28);
+
+
 
 
 	   while(1)
@@ -51,9 +57,10 @@ int main(void) {
 			   while(UARTCharsAvail(UART3_BASE))
 			   {
 
-				   GPS_Data_String[gCharcnt] = UARTCharGetNonBlocking(UART3_BASE);
-				   gCharcnt++;
-				   GPSrxFlag = false;
+				  //UARTCharPutNonBlocking(UART0_BASE,UARTCharGetNonBlocking(UART3_BASE));
+				  GPS_Data_String[gCharcnt] = UARTCharGetNonBlocking(UART3_BASE);
+				  gCharcnt++;
+				  GPSrxFlag = false;
 			   }
 		   }
 		   //Check for end of the String
@@ -68,6 +75,7 @@ int main(void) {
 
 			   }
 			   UARTprintf("%d\n", gCharcnt);
+
 			   //Reset GPS DATA STring
 			   for (i = 0; i < BUF_SIZE; i ++)
 			   {
@@ -94,7 +102,7 @@ void UART3IntHandler(void)
     //
     UARTIntClear(UART3_BASE, ui32Status);
 
-;
+
     //Set gps recieve flag;
     GPSrxFlag = true;
 
@@ -145,11 +153,9 @@ ConfigureUART(void)
     GPIOPinConfigure(GPIO_PC6_U3RX);
     GPIOPinConfigure(GPIO_PC7_U3TX);
     GPIOPinTypeUART(GPIO_PORTC_BASE, GPIO_PIN_6 | GPIO_PIN_7);
-
-    //
-    // Use the internal 16MHz oscillator as the UART clock source.
-    //
     IntMasterEnable();
+
+
 
     UARTStdioConfig(0, 38400, SysCtlClockGet());
 
@@ -168,33 +174,20 @@ ConfigureUART(void)
     //UARTStdioConfig(0, 115200, SysCtlClockGet());
 }
 
-void UARTSend(const uint8_t *pui8Buffer, uint32_t ui32Count)
-{
-    //
-    // Loop while there are more characters to send.
-    //
-    while(ui32Count--)
-    {
-        //
-        // Write the next character to the UART.
-        //
-        UARTCharPutNonBlocking(UART0_BASE, *pui8Buffer++);
-    }
-}
 
-void GPSConifg(void)
+void GPSConfigMsg(int32_t msg[], int num)
 {
 	int i = 0;
 
-	for (i = 0; i < sizeof(NMEA_GPRMCmsgConfig); i++)
+	for (i = 0; i < num; i++)
 	{
-		UARTCharPutNonBlocking(UART3_BASE, NMEA_GPRMCmsgConfig[i] );
+
+		UARTCharPut(UART3_BASE, msg[i] );
+		///GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2, 0x00);
 	}
 
-	for (i = 0; i < sizeof(NMEAoutConfig); i++)
-	{
-		UARTCharPutNonBlocking(UART3_BASE, NMEAoutConfig[i] );
-	}
+
+
 
 }
 
