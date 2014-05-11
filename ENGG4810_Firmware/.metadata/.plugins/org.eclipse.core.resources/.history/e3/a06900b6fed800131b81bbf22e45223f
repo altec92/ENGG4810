@@ -25,10 +25,10 @@ int main(void) {
 	   if(GPSrxFlag)
 	   {
 
-		   while(UARTCharsAvail(UART_BASE))
+		   while(UARTCharsAvail(UART3_BASE))
 		   {
 			   /*STORE RECIEVED CHARACTERS IN GPS DATA STRING*/
-			  GPS_Data_String[gCharcnt] = UARTCharGetNonBlocking(UART_BASE);
+			  GPS_Data_String[gCharcnt] = UARTCharGetNonBlocking(UART3_BASE);
 			  gCharcnt++;
 			  GPSrxFlag = false;
 		   }
@@ -68,7 +68,7 @@ void Periph_Enables(void)
 
 	/*UART0 AND UART3 ENABLES*/
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART1);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART3);
 
 
 }
@@ -88,12 +88,12 @@ void ConfigureUART(void)
     GPIOPinConfigure(GPIO_PA1_U0TX);
     GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 #endif
-    /* CONFIGURE UART 1 */
+    /* CONFIGURE UART 3 */
        UARTConfigSetExpClk(UART1_BASE, SysCtlClockGet(), 38400,
                                       (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |
                                        UART_CONFIG_PAR_NONE));
 
-    /* CONFIGURE PINS FOR UART 1 */
+    /* CONFIGURE PINS FOR UART 3 */
     GPIOPinConfigure(GPIO_PB0_U1RX);
     GPIOPinConfigure(GPIO_PB1_U1TX);
     GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
@@ -101,7 +101,7 @@ void ConfigureUART(void)
 
    /* UART INTERRUPT ENABLES */
     IntEnable(INT_UART1);
-    UARTIntEnable(UART_BASE, UART_INT_RX | UART_INT_RT);
+    UARTIntEnable(UART1_BASE, UART_INT_RX | UART_INT_RT);
 
 }
 
@@ -115,7 +115,7 @@ void GPSConfigMsg(int8_t msg[], int num)
 	for (i = 0; i < num; i++)
 	{
 
-		UARTCharPut(UART_BASE, msg[i] );
+		UARTCharPut(UART3_BASE, msg[i] );
 
 	}
 }
@@ -131,12 +131,12 @@ void UART1IntHandler(void)
     //
     // Get the interrrupt status.
     //
-    ui32Status = UARTIntStatus(UART_BASE, true);
+    ui32Status = UARTIntStatus(UART3_BASE, true);
 
     //
     // Clear the asserted interrupts.
     //
-    UARTIntClear(UART_BASE, ui32Status);
+    UARTIntClear(UART3_BASE, ui32Status);
 
 
     //Set gps recieve flag;

@@ -9,7 +9,7 @@
 #define PORTABLE_LOGGER_H_
 
 #define DEBUG 1
-#define UART_BASE UART1_BASE
+
 #include <stdint.h>
 #include <stdbool.h>
 
