@@ -18,7 +18,7 @@
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="com.ti.ccstudio.debug.ui.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.ti.ccstudio.debug.ui.toolbar" itemType="typeToolBarContribution" x="145" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -36,6 +36,11 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
@@ -43,17 +48,55 @@
 <editor id="com.ti.ccstudio.resource.explorer.editor.resourceExplorer" name="TI Resource Explorer" partName="TI Resource Explorer" title="TI Resource Explorer" tooltip="TI Resource Explorer" workbook="DefaultEditorWorkbook">
 <input factoryID="com.ti.ccstudio.resource.explorer.editor.elementFactory" name="TI Resource Explorer"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware/SD_Card2/main.c" title="main.c" tooltip="SD_Card2/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ff.c" partName="ff.c" path="C:/ti/TivaWare_C_Series-2.0.1.11577/third_party/fatfs/src/ff.c" title="ff.c" tooltip="SD_Card2/ff.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SD_Card2/ff.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="89974" selectionTopPixel="34695"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Defs.h" partName="Defs.h" path="C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware/SD_Card2/Defs.h" title="Defs.h" tooltip="SD_Card2/Defs.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SD_Card2/Defs.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="124" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware/Portable_Logger/main.c" title="main.c" tooltip="Portable_Logger/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Portable_Logger/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="220" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Portable_Logger.h" partName="Portable_Logger.h" path="C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware/Portable_Logger/Portable_Logger.h" title="Portable_Logger.h" tooltip="Portable_Logger/Portable_Logger.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Portable_Logger/Portable_Logger.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="949" selectionTopPixel="434"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Altec/Documents/University of Queensland/2014/Semester 1/ENGG4810/ENGG4810/ENGG4810_Firmware/SD_Card2/main.c" title="main.c" tooltip="SD_Card2/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SD_Card2/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="739" selectionTopPixel="480"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1172" selectionTopPixel="210"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="com.ti.ccstudio.project.ui.views.AdviceView" partName="Advice">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="com.ti.ccstudio.project.ui.views.adviceMarkerGenerator" partName="Advice">
+<expanded>
+<category IMemento.internal.id="Optimization Advice (3 items)"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="493"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<DESCENDING_FIELDS IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
 <viewState/>
 </view>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
+<viewState/>
 </view>
 <view id="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView" partName="Target Configurations">
 <viewState/>
@@ -64,11 +107,12 @@
 <view id="org.eclipse.debug.ui.RegisterView" partName="Registers">
 <viewState/>
 </view>
-<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="775"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -80,24 +124,8 @@
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
-<view id="com.ti.ccstudio.project.ui.views.AdviceView" partName="Advice">
-<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="com.ti.ccstudio.project.ui.views.adviceMarkerGenerator" partName="Advice">
-<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="493"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
-<DESCENDING_FIELDS IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
-</viewState>
-</view>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
-<viewState/>
-</view>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
-<viewState/>
-</view>
-<view id="com.ti.ccstudio.project.ui.views.OptimizerAssistantView" partName="Optimizer Assistant">
-<viewState/>
+<view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view" partName="Disassembly">
+<viewState disassembly.syncActiveContext="true" disassembly.trackExpression="false"/>
 </view>
 </views>
 <perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="com.ti.ccstudio.TICPerspective">
@@ -360,7 +388,6 @@
 <view id="com.ti.ccstudio.project.ui.views.AdviceView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="com.ti.ccstudio.project.ui.views.OptimizerAssistantView"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -415,11 +442,9 @@
 </folder>
 </info>
 <info folder="true" part="middleRight" ratio="0.5" ratioLeft="350" ratioRight="350" relationship="2" relative="middleLeft">
-<folder activePageID="com.ti.ccstudio.project.ui.views.OptimizerAssistantView" appearance="2" expanded="2">
-<page content="com.ti.ccstudio.project.ui.views.OptimizerAssistantView" label="Optimizer Assistant"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="com.ti.ccstudio.project.ui.views.OptimizerAssistantView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.75" ratioLeft="525" ratioRight="175" relationship="2" relative="org.eclipse.ui.editorss">
@@ -664,43 +689,66 @@
 <view id="org.eclipse.debug.ui.BreakpointView"/>
 <view id="org.eclipse.debug.ui.RegisterView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<fastViews>&#x0A;<view id="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView" ratio="0.3"/>
+<view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
+<fastViews>
+<view id="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView" ratio="0.3"/>
 </fastViews>
 <fastViewBars/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="topLeft" ratio="0.25" ratioLeft="478" ratioRight="1434" relationship="2" relative="left">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="topLeft" ratio="0.25" ratioLeft="478" ratioRight="1434" relationship="2" relative="left">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.39957035" ratioLeft="372" ratioRight="559" relationship="4" relative="topLeft"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@105442a" ratio="0.8470149" ratioLeft="227" ratioRight="41" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@105442a" ratio="0.8470149" ratioLeft="227" ratioRight="41" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="bottomRight" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@105442a">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="com.ti.ccstudio.scripting.console.ConsoleView" label="LabelNotFound"/>
+<info folder="true" part="bottomRight" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@105442a">
+<folder appearance="2" expanded="2">
+<page content="com.ti.ccstudio.scripting.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.558676" ratioLeft="557" ratioRight="440" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
-<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
+<info folder="true" part="right" ratio="0.558676" ratioLeft="557" ratioRight="440" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
-<info folder="true" part="topRight" ratio="0.4497908" ratioLeft="860" ratioRight="1052" relationship="2" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="topRight" ratio="0.4497908" ratioLeft="860" ratioRight="1052" relationship="2" relative="topLeft">
+<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
@@ -714,73 +762,161 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="com.ti.ccstudio.resource.explorer.editor.elementFactory" id="com.ti.ccstudio.resource.explorer.editor.resourceExplorer" name="TI Resource Explorer"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Uart_2/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Portable_Logger/tm4c1231h6pm_startup_ccs.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Portable_Logger/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Portable_Logger/Portable_Logger.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Uart_2/Definitions.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SD_Card2/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SD_Card2/Defs.h"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ff.h" project="SD_Card2"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SD_Card2/ff.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ffconf.h" project="SD_Card2"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sd_card/sd_card.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SD_Card2/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SD_Card2/Defs.h"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ff.h" project="SD_Card2"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SD_Card2/ff.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ffconf.h" project="SD_Card2"/>
 </editors>
-<item historyLabel="TI Resource Explorer" index="0"/>
-<item historyLabel="main.c" index="1">
-<position info="not_deleted" x="447" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2647" y="1324"/>
 </item>
-<item historyLabel="Defs.h" index="2">
-<position info="not_deleted" x="156" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="1365" y="0"/>
 </item>
-<item historyLabel="ff.h" index="3">
-<position info="not_deleted" x="9845" y="0"/>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="161" y="0"/>
 </item>
-<item historyLabel="ff.c" index="4">
-<position info="not_deleted" x="93819" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="2" y="0"/>
 </item>
-<item historyLabel="ffconf.h" index="5">
-<position info="not_deleted" x="1558" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2003" y="322"/>
 </item>
-<item historyLabel="ff.c" index="4">
-<position info="not_deleted" x="93819" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="2934" y="0"/>
 </item>
-<item historyLabel="sd_card.c" index="6">
-<position info="not_deleted" x="25315" y="0"/>
+<item historyLabel="Portable_Logger.h" index="3">
+<position/>
 </item>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="447" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="2934" y="0"/>
 </item>
-<item historyLabel="Defs.h" index="8">
-<position info="not_deleted" x="156" y="0"/>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="1726" y="0"/>
 </item>
-<item historyLabel="ff.h" index="9">
-<position info="not_deleted" x="9845" y="0"/>
+<item historyLabel="Definitions.h" index="4">
+<position info="not_deleted" x="138" y="20"/>
 </item>
-<item historyLabel="ff.c" index="10">
-<position info="not_deleted" x="93819" y="0"/>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="1726" y="0"/>
 </item>
-<item historyLabel="ffconf.h" index="11">
-<position info="not_deleted" x="1558" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="466" y="23"/>
 </item>
-<item historyLabel="ff.c" index="10">
-<position info="not_deleted" x="93819" y="0"/>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="1596" y="0"/>
 </item>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="447" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="930" y="0"/>
 </item>
-<item historyLabel="ff.h" index="9">
-<position info="not_deleted" x="9845" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="997" y="997"/>
 </item>
-<item historyLabel="ffconf.h" index="11">
-<position info="not_deleted" x="1558" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="930" y="0"/>
 </item>
-<item historyLabel="ff.h" index="9">
-<position info="not_deleted" x="9845" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="220" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="7">
-<position info="not_deleted" x="447" y="0"/>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="736" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="930" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="684" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="601" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="736" y="0"/>
+</item>
+<item historyLabel="tm4c1231h6pm_startup_ccs.c" index="1">
+<position info="not_deleted" x="1774" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1640" y="0"/>
+</item>
+<item historyLabel="tm4c1231h6pm_startup_ccs.c" index="1">
+<position info="not_deleted" x="1774" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="653" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="343" y="79"/>
+</item>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="557" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="653" y="0"/>
+</item>
+<item historyLabel="Defs.h" index="6">
+<position info="not_deleted" x="124" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="317" y="0"/>
+</item>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="565" y="0"/>
+</item>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="1775" y="0"/>
+</item>
+<item historyLabel="ff.c" index="7">
+<position info="not_deleted" x="89974" y="0"/>
+</item>
+<item historyLabel="Defs.h" index="6">
+<position info="not_deleted" x="124" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="565" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="1172" y="0"/>
+</item>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="1973" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="222" y="39"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="2431" y="40"/>
+</item>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="1581" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="708" y="15"/>
+</item>
+<item historyLabel="Portable_Logger.h" index="3">
+<position info="not_deleted" x="949" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="49" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="49" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="705" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="2">
+<position info="not_deleted" x="824" y="31"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -803,11 +939,32 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sd_card.c" tooltip="sd_card/sd_card.c">
-<persistable path="/sd_card/sd_card.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="SD_Card2/main.c">
+<persistable path="/SD_Card2/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Portable_Logger.h" tooltip="Portable_Logger/Portable_Logger.h">
+<persistable path="/Portable_Logger/Portable_Logger.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Portable_Logger/main.c">
+<persistable path="/Portable_Logger/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm4c1231h6pm_startup_ccs.c" tooltip="Portable_Logger/tm4c1231h6pm_startup_ccs.c">
+<persistable path="/Portable_Logger/tm4c1231h6pm_startup_ccs.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm4c1231h6pm_startup_ccs.c" tooltip="SD_Card2/tm4c1231h6pm_startup_ccs.c">
+<persistable path="/SD_Card2/tm4c1231h6pm_startup_ccs.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Defs.h" tooltip="SD_Card2/Defs.h">
+<persistable path="/SD_Card2/Defs.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mmc-dk-tm4c123g.c" tooltip="SD_Card2/mmc-dk-tm4c123g.c">
+<persistable path="/SD_Card2/mmc-dk-tm4c123g.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ff.c" tooltip="SD_Card2/ff.c">
 <persistable path="/SD_Card2/ff.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sd_card.c" tooltip="sd_card/sd_card.c">
+<persistable path="/sd_card/sd_card.c"/>
 </file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ffconf.h" tooltip="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ffconf.h">
 <persistable path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ffconf.h" project="SD_Card2"/>
@@ -817,36 +974,6 @@
 </file>
 <file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ff.h" tooltip="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ff.h">
 <persistable path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\ff.h" project="SD_Card2"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Portable_Logger/main.c">
-<persistable path="/Portable_Logger/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Defs.h" tooltip="SD_Card2/Defs.h">
-<persistable path="/SD_Card2/Defs.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm4c1231h6pm_startup_ccs.c" tooltip="SD_Card2/tm4c1231h6pm_startup_ccs.c">
-<persistable path="/SD_Card2/tm4c1231h6pm_startup_ccs.c"/>
-</file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="integer.h" tooltip="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\integer.h">
-<persistable path="C:\ti\TivaWare_C_Series-2.0.1.11577\third_party\fatfs\src\integer.h" project="SD_Card2"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mmc-dk-tm4c123g.c" tooltip="SD_Card2/mmc-dk-tm4c123g.c">
-<persistable path="/SD_Card2/mmc-dk-tm4c123g.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Definitions.h" tooltip="Uart_2/Definitions.h">
-<persistable path="/Uart_2/Definitions.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Uart_2/main.c">
-<persistable path="/Uart_2/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="SD_Card2/main.c">
-<persistable path="/SD_Card2/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mmc-dk-tm4c123g.c" tooltip="sd_card/third_party/fatfs/port/mmc-dk-tm4c123g.c">
-<persistable path="/sd_card/third_party/fatfs/port/mmc-dk-tm4c123g.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ff.c" tooltip="sd_card/third_party/fatfs/src/ff.c">
-<persistable path="/sd_card/third_party/fatfs/src/ff.c"/>
 </file>
 </mruList>
 </workbench>

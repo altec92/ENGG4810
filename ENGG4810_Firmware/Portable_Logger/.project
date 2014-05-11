@@ -45,11 +45,6 @@
 			<type>1</type>
 			<locationURI>PARENT-10-PROJECT_LOC/ti/TivaWare_C_Series-2.0.1.11577/utils/uartstdio.c</locationURI>
 		</link>
-		<link>
-			<name>uartstdio.h</name>
-			<type>1</type>
-			<locationURI>PARENT-10-PROJECT_LOC/ti/TivaWare_C_Series-2.0.1.11577/utils/uartstdio.h</locationURI>
-		</link>
 	</linkedResources>
 	<variableList>
 		<variable>

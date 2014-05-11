@@ -36,7 +36,7 @@ int main(void) {
 
 	FRESULT iFResult;
 	FIL fp;
-	char cLine[128]; // Line buffer
+
 
 	iFResult = f_mount(&g_sFatFs, "", 0);
 	if(iFResult != FR_OK)
@@ -47,17 +47,21 @@ int main(void) {
 	UARTprintf("f_mout Succeeded");
 	iFResult = f_open(&fp, "/TEST.txt ", FA_OPEN_ALWAYS| FA_WRITE| FA_READ );
 	//UARTprintf("f_open error: %s\n", StringFromFResult(iFResult));
-#ifdef DEBUG
+#if DEBUG
 	Cmd_ls();
 #endif
 
 	f_lseek(&fp, f_size(&fp));
 
 	f_printf(&fp, "HEllo NIGGERS\n");
+#if DEBUG
+
+	char cLine[128]; // Line buffer
 	f_lseek(&fp, 0);
 	while (f_gets(cLine, sizeof(cLine), &fp)){
 		UARTprintf("%s", cLine);
 	}
+#endif
 	f_close(&fp);
 	return 0;
 }
@@ -122,7 +126,7 @@ StringFromFResult(FRESULT iFResult)
     return("UNKNOWN ERROR CODE");
 }
 
-#ifdef DEBUG
+#if DEBUG
 	int Cmd_ls()
 	{
 		uint32_t ui32TotalSize;

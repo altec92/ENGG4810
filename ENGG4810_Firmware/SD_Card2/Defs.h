@@ -6,7 +6,7 @@
  */
 #ifndef DEFS_H_
 #define DEFS_H_
-#define DEBUG
+#define DEBUG 0
 #include "third_party/fatfs/src/diskio.h"
 
 void ConfigureUART(void);

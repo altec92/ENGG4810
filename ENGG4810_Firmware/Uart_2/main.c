@@ -2,7 +2,7 @@
  * main.c
  */
 
-#define PART_TM4C1230H6PM
+
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -185,9 +185,5 @@ void GPSConfigMsg(int32_t msg[], int num)
 		UARTCharPut(UART3_BASE, msg[i] );
 		///GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2, 0x00);
 	}
-
-
-
-
 }
 
