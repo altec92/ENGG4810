@@ -18,22 +18,7 @@ int main(void) {
 
 	GPSConfigMsg(NMEAoutConfig, 28);
 
-	/*Mount the SD CARD*/
-	iFResult = f_mount(&g_sFatFs, "", 1);
 
-
-	if(iFResult != FR_OK)
-	{
-		/*DISK ERROR*/
-#if DEBUG
-		UARTprintf("MOUNT UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
-#endif
-		while(1)
-		{
-			//set the LED to ERROR
-			//infinite loop to preserve state when debugging
-		}
-	}
 
    while(1)
    {
@@ -52,27 +37,9 @@ int main(void) {
 	   /*CHECK FOR NEW LINE CHARACTER*/
 	   if(GPS_Data_String[gCharcnt-1] == '\n')
 	   {
-		   /*Print String to console*/
+		   //Print String to console
+
 		   UARTprintf("%s", GPS_Data_String);
-
-		   /*INSERT SD CARD WRITING HERE INSTEAD OF PRINTING TO CONSOLE*/
-		   iFResult = f_open(&g_sFileObject, "LogText1.txt", FA_OPEN_ALWAYS|FA_WRITE);
-		   if(iFResult != FR_OK)
-		   	{
-		   		/*DISK ERROR*/
-#if DEBUG
-		   		UARTprintf("WRITE UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
-#endif
-		   		while(1)
-		   		{
-		   			//set the LED to ERROR
-		   			//infinite loop to preserve state when debugging
-		   		}
-
-		   	}
-
-		   /*Copy GPS data to the DATA_TO_WRITE string here*/
-
 #if DEBUG
 		   UARTprintf("%d\n", gCharcnt);
 #endif
@@ -152,37 +119,6 @@ void GPSConfigMsg(int8_t msg[], int num)
 
 	}
 }
-
-#if DEBUG
-/******************************************************
- * CONVERTS RESULT FROM FATFS OPERATIONS TO A STRING
- *******************************************************/
-const char * StringFromFResult(FRESULT iFResult)
-{
-    uint_fast8_t ui8Idx;
-
-    //
-    // Enter a loop to search the error code table for a matching error code.
-    //
-    for(ui8Idx = 0; ui8Idx < NUM_FRESULT_CODES; ui8Idx++)
-    {
-        //
-        // If a match is found, then return the string name of the error code.
-        //
-        if(g_psFResultStrings[ui8Idx].iFResult == iFResult)
-        {
-            return(g_psFResultStrings[ui8Idx].pcResultStr);
-        }
-    }
-
-    //
-    // At this point no matching code was found, so return a string indicating
-    // an unknown error.
-    //
-    return("UNKNOWN ERROR CODE");
-}
-
-#endif
 /**********************
  * INTERRUPT HANDLERS *
  **********************/

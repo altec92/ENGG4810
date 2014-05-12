@@ -79,12 +79,6 @@ int8_t NMEAoutConfig[] = {0xB5, 0x62, 0x06, 0x00, 0x14, 0x00, 0x01, 0x00, 0x00, 
 int Cmd_ls();
 const char * StringFromFResult(FRESULT iFResult);
 #endif
-
-/****************************************
- *  RESULT CODE FROM FATFS OPERATIONS
- ****************************************/
-FRESULT iFResult;
-
 /*****************************************************************************
  Defines the size of the buffers that hold the path, or temporary data from
  the SD card.  There are two buffers allocated of this size.  The buffer size

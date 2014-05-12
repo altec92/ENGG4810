@@ -18,16 +18,12 @@ int main(void) {
 
 	GPSConfigMsg(NMEAoutConfig, 28);
 
-	/*Mount the SD CARD*/
-	iFResult = f_mount(&g_sFatFs, "", 1);
 
-
+	iFResult = f_mount(g_sFatFs, "", 1);
 	if(iFResult != FR_OK)
 	{
 		/*DISK ERROR*/
-#if DEBUG
 		UARTprintf("MOUNT UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
-#endif
 		while(1)
 		{
 			//set the LED to ERROR
@@ -54,25 +50,7 @@ int main(void) {
 	   {
 		   /*Print String to console*/
 		   UARTprintf("%s", GPS_Data_String);
-
 		   /*INSERT SD CARD WRITING HERE INSTEAD OF PRINTING TO CONSOLE*/
-		   iFResult = f_open(&g_sFileObject, "LogText1.txt", FA_OPEN_ALWAYS|FA_WRITE);
-		   if(iFResult != FR_OK)
-		   	{
-		   		/*DISK ERROR*/
-#if DEBUG
-		   		UARTprintf("WRITE UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
-#endif
-		   		while(1)
-		   		{
-		   			//set the LED to ERROR
-		   			//infinite loop to preserve state when debugging
-		   		}
-
-		   	}
-
-		   /*Copy GPS data to the DATA_TO_WRITE string here*/
-
 #if DEBUG
 		   UARTprintf("%d\n", gCharcnt);
 #endif
@@ -153,7 +131,6 @@ void GPSConfigMsg(int8_t msg[], int num)
 	}
 }
 
-#if DEBUG
 /******************************************************
  * CONVERTS RESULT FROM FATFS OPERATIONS TO A STRING
  *******************************************************/
@@ -181,8 +158,6 @@ const char * StringFromFResult(FRESULT iFResult)
     //
     return("UNKNOWN ERROR CODE");
 }
-
-#endif
 /**********************
  * INTERRUPT HANDLERS *
  **********************/

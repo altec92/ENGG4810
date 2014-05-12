@@ -19,7 +19,7 @@ int main(void) {
 	GPSConfigMsg(NMEAoutConfig, 28);
 
 	/*Mount the SD CARD*/
-	iFResult = f_mount(&g_sFatFs, "", 1);
+	iFResult = f_mount(g_sFatFs, "", 1);
 
 
 	if(iFResult != FR_OK)
