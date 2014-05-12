@@ -30,7 +30,7 @@ int main(void) {
 #endif
 		while(1)
 		{
-			//set the LED to ERROR PROBS RED
+			//set the LED to ERROR
 			//infinite loop to preserve state when debugging
 		}
 	}
@@ -65,7 +65,7 @@ int main(void) {
 #endif
 		   		while(1)
 		   		{
-		   			//set the LED to ERROR PROBS RED
+		   			//set the LED to ERROR
 		   			//infinite loop to preserve state when debugging
 		   		}
 
