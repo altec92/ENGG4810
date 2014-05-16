@@ -12,8 +12,6 @@
 #define UART_BASE UART1_BASE
 #include <stdint.h>
 #include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
 
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
@@ -40,11 +38,6 @@
  * String to hold any characters received from the GPS module *
  **************************************************************/
 static int8_t  GPS_Data_String[BUF_SIZE];
-
-/**************************************************************
- * String to hold Data that is to be written to sd card       *
- **************************************************************/
-static int32_t  Write_Data_String[BUF_SIZE*3];
 
 /***************************************************************
  * Counter to keep track of the number of Characters received  *

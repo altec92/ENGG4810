@@ -21,7 +21,7 @@ int main(void) {
 	/*Mount the SD CARD*/
 	iFResult = f_mount(&g_sFatFs, "", 1);
 
-	//iFResult = FR_OK;
+
 	if(iFResult != FR_OK)
 	{
 		/*DISK ERROR*/
@@ -50,53 +50,28 @@ int main(void) {
 	   }
 
 	   /*CHECK FOR NEW LINE CHARACTER*/
-
 	   if(GPS_Data_String[gCharcnt-1] == '\n')
 	   {
 		   /*Print String to console*/
-#if DEBUG
 		   UARTprintf("%s", GPS_Data_String);
-#endif
-		   if(GPS_Data_String[0] =='$')
-		   {
-			   /*Copy GPS data to the DATA_TO_WRITE string here*/
-			   sprintf((char *)Write_Data_String, "%s", (char *)GPS_Data_String);
-			   iFResult = f_open(&g_sFileObject, "LogText2.txt", FA_OPEN_ALWAYS|FA_WRITE|FA_READ);
-			   if(iFResult != FR_OK)
-			   	{
-			   		/*DISK ERROR*/
+
+		   /*INSERT SD CARD WRITING HERE INSTEAD OF PRINTING TO CONSOLE*/
+		   iFResult = f_open(&g_sFileObject, "LogText1.txt", FA_OPEN_ALWAYS|FA_WRITE);
+		   if(iFResult != FR_OK)
+		   	{
+		   		/*DISK ERROR*/
 #if DEBUG
-			   		UARTprintf("WRITE UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
+		   		UARTprintf("WRITE UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
 #endif
-			   		while(1)
-			   		{
-			   			//set the LED to ERROR PROBS RED
-			   			//infinite loop to preserve state when debugging
-			   		}
-			   	}
+		   		while(1)
+		   		{
+		   			//set the LED to ERROR PROBS RED
+		   			//infinite loop to preserve state when debugging
+		   		}
 
-				f_lseek(&g_sFileObject, f_size(&g_sFileObject));
+		   	}
 
-				f_printf(&g_sFileObject, "%s", Write_Data_String);
-		   }
-#if DEBUG
-		   UARTprintf("%s", Write_Data_String);
-#endif
-
-
-		   		   	/* print to console what was written.*/
-#if DEBUG
-
-			char cLine[128]; // Line buffer
-			f_lseek(&g_sFileObject, 0);
-			while (f_gets(cLine, sizeof(cLine), &g_sFileObject))
-			{
-				UARTprintf("%s", cLine);
-			}
-#endif
-			f_close(&g_sFileObject);
-
-
+		   /*Copy GPS data to the DATA_TO_WRITE string here*/
 
 #if DEBUG
 		   UARTprintf("%d\n", gCharcnt);
