@@ -466,7 +466,8 @@ namespace ENG4810_Software
         {
             this.splitContainer1.Panel1.Controls.Add(new Label
             {
-                Location = new Point(444, 44 + (Routes.Count - 1) * 26),
+                
+                Location = new Point(523+20, 44 + (Routes.Count - 1) * 26),
                 Name = "ThreshCheckR" + Routes.Count.ToString(),
                 Text = name,
                 BorderStyle = BorderStyle.None,
@@ -485,12 +486,12 @@ namespace ENG4810_Software
 
             List<DataSample> out_of_threshold = new List<DataSample>(); //List for all datasamples that are out of the threshold
 
-            //Remove current MArkers
-            for (int k = 0; k <= markerOverlay.Markers.Count() - 1; k++)
+            //Remove current Markers
+            while(markerOverlay.Markers.Count() > 0 )
             {
-                markerOverlay.Markers.RemoveAt(0);
+                markerOverlay.Markers.RemoveAt(0);  
             }
-
+            gmap.Refresh();
             //Check Each Route in Routes List
             for (int i = 0; i <= Routes.Count() - 1; i++)
             {

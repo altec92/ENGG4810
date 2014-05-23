@@ -14,11 +14,13 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
 #include "inc/hw_i2c.h"
 #include "inc/hw_ints.h"
+#include "inc/hw_hibernate.h"
 
 #include "driverlib/rom.h"
 #include "driverlib/i2c.h"
@@ -28,11 +30,14 @@
 #include "driverlib/pin_map.h"
 #include "driverlib/uart.h"
 #include "driverlib/interrupt.h"
-
+#include "driverlib/hibernate.h"
 #include "utils/uartstdio.h"
 
 #include "third_party/fatfs/src/ff.h"
 #include "third_party/fatfs/src/diskio.h"
+
+#define COLDWAKE  0
+#define HIBERNATE_WAKE  1
 
 //ARBITRARY BUFFER SIZE FOR GPS DATA STRING
 #define BUF_SIZE 128
@@ -61,10 +66,14 @@ bool GPSrxFlag = false;
 /****************************
  * Function Prototypes      *
  ****************************/
-void ConfigureUART(void);
-void GPSConfigMsg(int8_t msg[], int num);
-void Periph_Enables(void);
-
+extern void ConfigureUART(void);
+extern void GPSConfigMsg(int8_t msg[], int num);
+extern void Periph_Enables(void);
+extern void print_file(FIL *fp);
+extern void AppHibernateEnter(void);
+int file_count(void);
+void create_log(void);
+void open_log(void);
 /*****************************
  * GPS CONFIGURATION COMMANDS*
  *****************************/
@@ -77,13 +86,16 @@ int8_t NMEA_GPRMCmsgConfig[] = { 0xB5, 0x62, 0x06, 0x01, 0x08, 0x00, 0xF0, 0x04,
 int8_t NMEAoutConfig[] = {0xB5, 0x62, 0x06, 0x00, 0x14, 0x00, 0x01, 0x00, 0x00, 0x00, 0xD0, 0x08, 0x00, 0x00, 0x00,
 							0x96, 0x00, 0x00, 0x07, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x92, 0x8A};
 
+/*GPS OFF MESSAGE*/
+int8_t GPS_Off[] = {0xB5, 0x62, 0x02, 0x41, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
+						0x00, 0x00, 0x00, 0x4D, 0x3B};
+int8_t GPS_On[] = {0xFF};
 
 /***********************
  * SD CARD DEFINITIONS *
  ***********************/
 
 #ifdef DEBUG
-int Cmd_ls();
 const char * StringFromFResult(FRESULT iFResult);
 #endif
 
@@ -130,6 +142,8 @@ static FIL g_sFileObject;
 *****************************************************************************/
 #define FRESULT_ENTRY(f)        { (f), (#f) }
 
+
+
 #if DEBUG
 /*****************************************************************************
  A structure that holds a mapping between an FRESULT numerical code, and a
@@ -172,5 +186,21 @@ tFResultString g_psFResultStrings[] =
     FRESULT_ENTRY(FR_INVALID_PARAMETER),
 };
 #endif
+
+
+//*****************************************************************************
+//
+// Structure typedef to make storing application state data to and from the
+// hibernate battery backed memory simpler.
+//
+//*****************************************************************************
+
+typedef struct
+{
+	char cFilename[50];
+	int32_t state;
+
+}tAppState;
+
 
 #endif /* PORTABLE_LOGGER_H_ */
