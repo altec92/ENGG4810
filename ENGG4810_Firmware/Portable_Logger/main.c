@@ -3,6 +3,7 @@
  */
 
 #include "Portable_Logger.h"
+#include "driverlib/timer.h"
 //*****************************************************************************
 //
 // Application state structure.  Gets stored to hibernate memory for
@@ -12,22 +13,47 @@
 
 tAppState g_sAppState;
 
+//secs to do stuff
+uint32_t ui32SecsCnt;
+
+uint32_t ui32WaitTime;
 /*
  * keeps track of the number of log files on SD card for file name
  */
 uint32_t ui32LogNum;
-
-
+bool bSDWrite;
+char cwFileName[50];
+bool bFix;
 int main(void) {
 
 	uint32_t ui32ResetCause;
 	uint32_t ui32Status;
+	bFix = false;
+	ui32SecsCnt = 0;
 	SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN |
 			SYSCTL_XTAL_16MHZ);
 
 
 	Periph_Enables();
 	ConfigureUART();
+	iFResult = f_mount(&g_sFatFs, "", 1);
+
+	//iFResult = FR_OK;
+	if(iFResult != FR_OK)
+	{
+		/*DISK ERROR SET STATUS LED RED*/
+		GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
+
+#if DEBUG
+		UARTprintf("MOUNT UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
+#endif
+
+		while(1)
+		{
+
+		}
+	}
+
 
 
 	ui32ResetCause = SysCtlResetCauseGet();
@@ -43,7 +69,7 @@ int main(void) {
 			HibernateIntClear(ui32Status);
 
 			//
-			// Wake was due to the push button.
+			// Wake was due to the push button.+
 			//
 			if(ui32Status & HIBERNATE_INT_PIN_WAKE)
 			{
@@ -56,6 +82,7 @@ int main(void) {
 				HibernateDataGet((uint32_t*) &g_sAppState,
 						sizeof(tAppState) / 4 + 1);
 				g_sAppState.state = HIBERNATE_WAKE;
+				bFix = g_sAppState.bHadfix;
 			}
 
 			//
@@ -63,15 +90,32 @@ int main(void) {
 			//
 			else if(ui32Status & HIBERNATE_INT_RTC_MATCH_0)
 			{
+#if DEBUG
 				UARTprintf("Hibernate RTC Wake Event\n");
-
+#endif
 				//
 				// Recover the application state variables from battery backed
 				// hibernate memory. Set ui32Mode to briefly flash the RGB.
 				//
 				HibernateDataGet((uint32_t*) &g_sAppState,
 						sizeof(tAppState) / 4 + 1);
+
 				g_sAppState.state = HIBERNATE_WAKE;
+
+				bFix = g_sAppState.bHadfix;
+
+				ui32WaitTime = 10;
+
+				sprintf(cwFileName, "%s", g_sAppState.cFilename);
+
+				/*Turn on GPS*/
+				open_log();
+
+				GPSConfigMsg(GPS_On,1);
+				GPSConfigMsg(NMEA_GPRMCmsgConfig, 16 );
+				GPSConfigMsg(NMEAoutConfig, 28);
+
+				GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_GREEN);
 			}
 		}
 
@@ -80,15 +124,26 @@ int main(void) {
 			//
 			// Reset was due to a cold first time power up.
 			//
+#if DEBUG
 			UARTprintf("Power on reset. Hibernate not active.\n");
+#endif
 			g_sAppState.state = COLDWAKE;
+			bFix = false;
+
+			create_log();
+			GPSConfigMsg(NMEA_GPRMCmsgConfig, 16 );
+			GPSConfigMsg(NMEAoutConfig, 28);
+
+			GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_BLUE);
 		}
+
 	}
 	else
 	{
 		//
 		// External Pin reset or other reset event occured.
 		//
+		GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
 		UARTprintf("External or other reset\n");
 		while(1)
 		{
@@ -102,104 +157,79 @@ int main(void) {
 	HibernateEnableExpClk(SysCtlClockGet());
 
 	/*Mount the SD CARD*/
-	iFResult = f_mount(&g_sFatFs, "", 1);
-
-	//iFResult = FR_OK;
-	if(iFResult != FR_OK)
-	{
-		/*DISK ERROR*/
-#if DEBUG
-		UARTprintf("MOUNT UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
-#endif
-		while(1)
-		{
-			//set the LED to ERROR PROBS RED
-			//infinite loop to preserve state when debugging
-		}
-	}
-
 
 	while(1)
 	{
-		if(g_sAppState.state == HIBERNATE_WAKE)
+		ui32WaitTime = bFix ? 10 : 60;
+		/*
+		if(bFix)
 		{
-			GPSConfigMsg(GPS_On,1);
-			GPSConfigMsg(NMEA_GPRMCmsgConfig, 16 );
-			GPSConfigMsg(NMEAoutConfig, 28);
-
+			ui32WaitTime = 10;
+		}else
+		{
+			ui32WaitTime = 60;
 		}
-		else if(g_sAppState.state == COLDWAKE)
+		*/
+		while(ui32SecsCnt < ui32WaitTime)
 		{
-			/*TURN ON AND CONFIGURE GPS*/
-			GPSConfigMsg(NMEA_GPRMCmsgConfig, 16 );
-			GPSConfigMsg(NMEAoutConfig, 28);
-			create_log();
 
-		}
-
-
-		if(GPSrxFlag)
-		{
-			while(UARTCharsAvail(UART_BASE))
+			if(GPSrxFlag)
 			{
-				/*STORE RECIEVED CHARACTERS IN GPS DATA STRING*/
-				GPS_Data_String[gCharcnt] = UARTCharGetNonBlocking(UART_BASE);
-				gCharcnt++;
-				GPSrxFlag = false;
+				while(UARTCharsAvail(UART_BASE))
+				{
+					/*STORE RECIEVED CHARACTERS IN GPS DATA STRING*/
+					GPS_Data_String[gCharcnt] = UARTCharGetNonBlocking(UART_BASE);
+					gCharcnt++;
+					GPSrxFlag = false;
+				}
 			}
-		}
-
-		/*CHECK FOR NEW LINE CHARACTER*/
-
-		if(GPS_Data_String[gCharcnt-1] == '\n')
-		{
-			if(GPS_Data_String[0] =='$')
+			if(GPS_Data_String[gCharcnt-1] == '\n')
 			{
-				/*Print String to console*/
 #if DEBUG
+				UARTprintf("SECONDS %d\n", ui32SecsCnt);
 				UARTprintf("%s", GPS_Data_String);
 #endif
-				/*Copy GPS data to the DATA_TO_WRITE string here*/
-				sprintf((char *)Write_Data_String, "%s", (char *)GPS_Data_String);
-
-
-				f_lseek(&g_sFileObject, f_size(&g_sFileObject));
-
-				f_printf(&g_sFileObject, "%s", Write_Data_String);
-				f_sync(&g_sFileObject);
+				if(Read_GPS() == 0)
+				{
+					bFix = true;
+					gCharcnt = 0;
+					break;
+				}else
+				{
+					bFix = false;
+				}
+				gCharcnt = 0;
 			}
-#if DEBUG
-			UARTprintf("%s", Write_Data_String);
-#endif
-
-
-			/* print to console what was written.*/
-#if DEBUG
-			print_file(&g_sFileObject);
-
-#endif
-			f_close(&g_sFileObject);
-
-
-
-#if DEBUG
-			UARTprintf("%d\n", gCharcnt);
-#endif
-			//Reset GPS DATA STring
-			int i;
-			for (i = 0; i < BUF_SIZE; i ++)
-			{
-				GPS_Data_String[i] = 0;
-			}
-
-			gCharcnt = 0;
 		}
+
+		/*When Program reaches this point the GPS has a valid fix or Timeout has occured*/
+
+		f_lseek(&g_sFileObject, f_size(&g_sFileObject));
+		f_printf(&g_sFileObject, "%s", Write_Data_String);
+		iFResult = f_sync(&g_sFileObject);
+		if(iFResult != FR_OK)
+		{
+			GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
+#if DEBUG
+			UARTprintf("SYNC UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
+#endif
+			while(1)
+			{
+				//infinite loop to preserve state when debugging
+			}
+		}
+		/* print to console line count of current file*/
+#if DEBUG
+		print_file(&g_sFileObject);
+#endif
+		SysCtlDelay(50000);
+		AppHibernateEnter();
 	}
 }
 
 
 /*
- * ENABLES ALL REQUIRED PERIPHERALS
+ * ENABLES ALL REQUIRED PERIPHERALS. SET UP TIMER0
  */
 void Periph_Enables(void)
 {
@@ -214,6 +244,19 @@ void Periph_Enables(void)
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART1);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_HIBERNATE);
 
+	GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);
+	TimerConfigure(TIMER0_BASE, TIMER_CFG_PERIODIC);
+
+
+	TimerLoadSet(TIMER0_BASE, TIMER_A, SysCtlClockGet()-1);
+
+	IntEnable(INT_TIMER0A);
+	TimerIntEnable(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
+
+	TimerEnable(TIMER0_BASE, TIMER_A);
+
 
 }
 
@@ -224,14 +267,16 @@ void ConfigureUART(void)
 {
 #if DEBUG
 
-	/*CONFIGURE THE UART0 TO ALLOW USE OF UART STDIO FUNCTIONS*/
+	/*CONFIGURE THE UART0 TO ALLOW USE OF UART STDIO FUNCTIONS WHILE DEBUGGING*/
 	UARTStdioConfig(0, 38400, SysCtlClockGet());
 
 	/*CONFIGURE PINS FOR UART 0  */
 	GPIOPinConfigure(GPIO_PA0_U0RX);
 	GPIOPinConfigure(GPIO_PA1_U0TX);
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+
 #endif
+
 	/* CONFIGURE UART 1 */
 	UARTConfigSetExpClk(UART1_BASE, SysCtlClockGet(), 38400,
 			(UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |
@@ -248,6 +293,8 @@ void ConfigureUART(void)
 	UARTIntEnable(UART_BASE, UART_INT_RX | UART_INT_RT);
 
 }
+
+
 
 /********************************************
  * SEND A CONFIGURATION MESSAGE TO THE GPS  *
@@ -277,25 +324,39 @@ void AppHibernateEnter(void)
 	HibernateGPIORetentionEnable();
 	HibernateRTCSet(0);
 	HibernateRTCEnable();
-	HibernateRTCMatchSet(0, 1);
+	HibernateRTCMatchSet(0, 10);
 	HibernateWakeSet(HIBERNATE_WAKE_PIN | HIBERNATE_WAKE_RTC);
 
-	//
+	//store the FIX state
+	g_sAppState.bHadfix = bFix;
+
+
 	// Store state information to battery backed memory
 	// since sizeof returns number of bytes we convert to words and force
 	// a rounding up to next whole word.
-	//
+
 	HibernateDataSet((uint32_t*)&g_sAppState, sizeof(tAppState)/4+1);
-	GPSConfigMsg(GPS_Off, 16);
+	/*close the file object currently being used*/
 	f_close(&g_sFileObject);
+
+	/*turn off the gps */
+	GPSConfigMsg(GPS_Off,14);
+
+#if DEBUG
+
+	UARTprintf("Entering Hibernate\n");
+	SysCtlDelay(50000);
+
+#endif
+	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_OFF);
 	HibernateRequest();
+	for(;;){}
 
 
 }
-/*
+/*************************************************
  * Count files in directory for log file Number
- *
- */
+ *************************************************/
 
 int file_count()
 {
@@ -314,7 +375,14 @@ int file_count()
 	//
 	if(iFResult != FR_OK)
 	{
-		return((int)iFResult);
+		GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
+#if DEBUG
+		UARTprintf("OPEN UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
+#endif
+		while(1)
+		{
+			//infinite loop to preserve state when debugging
+		}
 	}
 	ui32FileCount = 0;
 	//
@@ -332,7 +400,14 @@ int file_count()
 		//
 		if(iFResult != FR_OK)
 		{
-			return((int)iFResult);
+			GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
+#if DEBUG
+			UARTprintf("OPEN UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
+#endif
+			while(1)
+			{
+				//infinite loop to preserve state when debugging
+			}
 		}
 
 		//
@@ -356,6 +431,67 @@ int file_count()
 	}
 	return ui32FileCount;
 }
+
+int Read_GPS(void)
+{
+	int iIndex = 0;
+	int iCommaCnt = 0;
+	int i;
+	bool bValidFix = false;
+	while(iIndex < gCharcnt)
+	{
+		if(GPS_Data_String[iIndex] == ',')
+		{
+			iCommaCnt++;
+			if(iCommaCnt == 2)
+			{
+				if(GPS_Data_String[iIndex+1] == 'A')
+				{
+					//set valid fix true
+					bValidFix = true;
+					/*Copy GPS data to the DATA_TO_WRITE string here*/
+					sprintf((char *)Write_Data_String, "%s", (char *)GPS_Data_String);
+					//Reset GPS DATA string
+					for (i = 0; i < BUF_SIZE; i ++)
+					{
+						GPS_Data_String[i] = 0;
+					}
+					break;
+				}else
+				{
+					//set valid fix false
+					bValidFix = false;
+					break;
+				}
+			}
+		}
+		iIndex++;
+	}
+#if DEBUG
+	//UARTprintf("%s", Write_Data_String);
+	//UARTprintf("%d\n", gCharcnt);
+
+#endif
+
+	/*Print String to console*/
+#if DEBUG
+	//UARTprintf("%s", GPS_Data_String);
+	//SysCtlDelay(50000);
+#endif
+	if(bValidFix )
+	{
+		return 0;
+
+	}else
+	{
+		return -1;
+	}
+
+
+
+
+}
+
 
 #if DEBUG
 /******************************************************
@@ -394,7 +530,6 @@ void print_file(FIL *fp)
 	while (f_gets(cLine, sizeof(cLine), fp))
 	{
 		iLineCnt++;
-
 	}
 	UARTprintf("Line count: %d\n",iLineCnt);
 	iLineCnt = 0;
@@ -405,31 +540,34 @@ void create_log(void)
 	ui32LogNum = file_count();
 	sprintf(g_sAppState.cFilename, "Log%d", ui32LogNum + 1);
 	iFResult = f_open(&g_sFileObject, g_sAppState.cFilename, FA_OPEN_ALWAYS|FA_WRITE);
+	f_sync(&g_sFileObject);
 	if(iFResult != FR_OK)
 	{
-		/*DISK ERROR*/
+		/*DISK ERROR SET LED RED*/
+		GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
 #if DEBUG
 		UARTprintf("WRITE UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
 #endif
 		while(1)
 		{
-			//set the LED to ERROR PROBS RED
+
 			//infinite loop to preserve state when debugging
 		}
 	}
 }
 void open_log(void)
 {
-	iFResult = f_open(&g_sFileObject, g_sAppState.cFilename, FA_OPEN_ALWAYS|FA_WRITE);
+	iFResult = f_open(&g_sFileObject, cwFileName, FA_OPEN_ALWAYS|FA_WRITE);
+	f_sync(&g_sFileObject);
 	if(iFResult != FR_OK)
 	{
-		/*DISK ERROR*/
+		/*DISK ERROR SET LED RED*/
+		GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, LED_RED);
 #if DEBUG
 		UARTprintf("OPEN UNSUCCESSFUL ERROR CODE : %s\n", StringFromFResult(iFResult));
 #endif
 		while(1)
 		{
-			//set the LED to ERROR PROBS RED
 			//infinite loop to preserve state when debugging
 		}
 	}
@@ -458,6 +596,14 @@ void UART1IntHandler(void)
 
 	//Set gps recieve flag;
 	GPSrxFlag = true;
+}
 
+
+void Timer0IntHandler(void)
+{
+	// Clear the timer interrupt
+	TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
+
+	ui32SecsCnt++;
 
 }
