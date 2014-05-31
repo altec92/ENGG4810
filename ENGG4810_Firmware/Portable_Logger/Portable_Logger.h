@@ -31,6 +31,7 @@
 #include "driverlib/uart.h"
 #include "driverlib/interrupt.h"
 #include "driverlib/hibernate.h"
+#include "driverlib/eeprom.h"
 #include "utils/uartstdio.h"
 
 #include "third_party/fatfs/src/ff.h"
@@ -53,7 +54,7 @@ int Read_GPS(void);
  *  STATE OF WAKE UP OF TIVA BOARD   *
  *************************************/
 #define COLDWAKE  0
-#define HIBERNATE_WAKE  1
+#define HIBERNATE_WAKEUP  1
 
 
 
@@ -67,9 +68,15 @@ typedef struct
 {
 	char cFilename[50];
 	int32_t state;
-	bool bHadfix;
+	uint32_t ui32Hadfix;
 
 }tAppState;
+/*
+ * WRITE DATA AND READ DATA ARRAYS FOR EEPROM BEFORE HIBERNATE
+ */
+uint32_t pui32EEPData[2];
+uint32_t pui32EEPRead[2];
+
 
 /***********************************
  * TIVA RGB LED COLOUR DEFINITIONS *
@@ -85,6 +92,10 @@ typedef struct
  * String to hold any characters received from the GPS module *
  **************************************************************/
 static int8_t  GPS_Data_String[BUF_SIZE];
+/**************************************************************
+ * String to hold TEMP hold a valid Gps string				  *
+ **************************************************************/
+static int8_t  Temp_GPS_Data_String[BUF_SIZE];
 
 /**************************************************************
  * String to hold Data that is to be written to sd card       *
